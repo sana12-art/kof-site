@@ -1,0 +1,54 @@
+/* Register.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    overflow-x: hidden;  /* Empêche les défilements horizontaux */
+    overflow-y: auto;    /* Permet le défilement vertical si nécessaire */
+      
+  }
+  
+  .register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px; /* Augmenter la taille du titre */
+  }
+  
+  .register-container form {
+    display: flex;
+    flex-direction: column;
+    width: 350px; /* Augmenter la largeur du formulaire */
+  }
+  
+  .register-container input {
+    padding: 16px; /* Augmenter la taille du padding */
+    margin: 15px 0; /* Plus d'espace entre les champs */
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Coins plus arrondis */
+    font-size: 18px; /* Augmenter la taille de la police */
+    outline: none;
+  }
+  
+  .register-container input:focus {
+    border-color: #007bff;
+  }
+  
+  .register-container button {
+    padding: 16px; /* Augmenter le padding pour le bouton */
+    margin: 15px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px
+  }

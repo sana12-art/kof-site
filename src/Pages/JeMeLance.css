@@ -1,0 +1,51 @@
+.jemelance-container {
+    padding: 60px 20px;
+    background: linear-gradient(to right, #003366, #0055aa);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .jemelance-container h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  
+  .jemelance-container p {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .contact-form button {
+    padding: 15px;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0088cc;
+    transform: scale(1.05);
+  }
+  
