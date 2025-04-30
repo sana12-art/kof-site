@@ -11,16 +11,6 @@ const DropdownMenu = () => {
       <button className="dropdown-button" onClick={toggleDropdown}>
         Création d’entreprise <span className="arrow">&#9662;</span>
       </button>
-      {isOpen && (
-        <ul className="dropdown-menu">
-          <li>Création d'entreprise</li>
-          <li>Création entreprise SASU</li>
-          <li>Création entreprise EURL</li>
-          <li>Création entreprise SARL</li>
-          <li>Création entreprise SAS</li>
-          <li>Créer mon entreprise</li>
-        </ul>
-      )}
     </div>
   );
 };

@@ -19,7 +19,10 @@ const Navbar = () => {
                 <ul className='navbar-links'>
                     <li><Link to="/">Accueil</Link></li>
                     <li><Link to="/services">Services</Link></li>
-                    <li><DropdownMenu /></li>                 
+                    <Link to="/creation-entreprise" className="nav-link">
+                        Créer mon entreprise
+                    </Link>
+                
                 </ul>
 
                 {/* Téléphone + bouton + icône à droite */}
