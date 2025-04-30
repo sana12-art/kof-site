@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './CreateEntrepriseForm.css';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
 
 const CreateEntrepriseForm = () => {
   const [step, setStep] = useState(1);
@@ -65,7 +68,11 @@ const CreateEntrepriseForm = () => {
         <div>
           <h2>Quelle est votre adresse mail ?</h2>
           <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
-          <input type="text" name="telephone" value={formData.telephone} onChange={handleChange} placeholder="Téléphone" />
+          <PhoneInput
+            country={'fr'} // code ISO par défaut (fr = France, ma = Maroc)
+            value={formData.telephone}
+            onChange={(value) => setFormData({ ...formData, telephone: value })}
+          />
           <button onClick={prevStep}>Retour</button>
           <button onClick={nextStep}>Suivant</button>
         </div>
