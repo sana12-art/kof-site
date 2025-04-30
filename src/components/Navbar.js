@@ -16,14 +16,14 @@ const Navbar = () => {
                 </div>
 
                 {/* Liens au centre */}
-                <ul className='navbar-links'>
-                    <li><Link to="/">Accueil</Link></li>
-                    <li><Link to="/services">Services</Link></li>
-                    <Link to="/creation-entreprise" className="nav-link">
-                        Créer mon entreprise
-                    </Link>
-                
-                </ul>
+                <nav className="navbar">
+                    <ul className="nav-menu">
+                        <li><Link to="/" className="nav-link">Accueil</Link></li>
+                        <li><Link to="/services" className="nav-link">Services</Link></li>
+                        <li><Link to="/creation-entreprise" className="nav-link">Création d'entreprise</Link></li>
+                    </ul>
+                </nav>
+
 
                 {/* Téléphone + bouton + icône à droite */}
                 <div className="navbar-right">

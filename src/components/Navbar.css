@@ -1,12 +1,16 @@
-.navbar{
+/* Navbar globale */
+.navbar {
     padding: 10px 30px;
-    background-color: white;
-    box-shadow:none;
-    background-color: transparent; /* 100% TRANSPARENT */
-    border: none; /* pas de bordure */
-
-   
+    background-color:transparent; /* 100% TRANSPARENT */
+    box-shadow: none;
+    border: none;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff; /* Ajoute une couleur de fond */
 }
+
+/* Conteneur principal de la navbar avec box */
 .navbar-container {
     display: flex;
     align-items: center;
@@ -15,108 +19,70 @@
     margin: 0 auto;
     position: relative;
     height: 70px;
-    background-color: #ffffff41;
-}
-.navbar-links {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-    transform:translateX(-50%) ;
-    left: 50%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-
-    
-}
-.navbar-links li a {
-    position: relative;
-   text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 19px;
-    transition: color 0.3s ease ;
-}
-
-  
-.navbar-links li a:hover {
-    color: #007BFF;
-}
-
-.logo-img {
-    width: 120px; 
-    height: auto; 
-    z-index: 2;
-}
-.navbar {
-    background-color: #fff;
-    padding: 10px 30px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    
-}
-
-.navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    background-color: #ffffff; /* Fond de la navbar */
 }
 
 /* Logo */
-.navbar-logo img {
-    height: 115px;
+.logo-img {
+    width: 120px;
+    height: auto;
+    z-index: 2;
 }
 
-/* Liens au centre */
-.navbar-links {
-    list-style: none;
+/* Liens de navigation au centre */
+.nav-menu {
     display: flex;
-    gap: 30px;
+    list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
-.navbar-links li a {
+.nav-link {
     text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    font-size: 18px;
-    transition: color 0.3s;
+    color: #000;
+    padding: 10px 15px;
+    font-weight: 500;
+    display: inline-block;
+    font-weight: bold; /* Met les liens en gras */
+    font-size:medium;
 }
 
-.navbar-links li a:hover {
-    color: #0077cc;
+.nav-link:hover {
+    color: #0077cc; /* Color on hover */
 }
 
-/* Téléphone + bouton + icône */
+/* Section droite (Téléphone, contact et login) */
 .navbar-right {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
+/* Style du bouton téléphone */
 .phone-button {
-    background-color:#0077cc; 
-    color: #ffffff; 
-    border: 2px solid #0077cc; 
+    background-color: #0077cc;
+    color: #ffffff;
+    border: 2px solid #0077cc;
     padding: 8px 16px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
 }
+
 .phone-button:hover {
-    background-color: #51b7ff; 
-    color: #fff; 
+    background-color: #51b7ff;
+    color: #fff;
 }
 
+/* Style du bouton "Nous contacter" */
 .contact-button {
-    background-color: transparent; 
-    color: #0077cc; 
-    border: 2px solid #0077cc; 
+    background-color: transparent;
+    color: #0077cc;
+    border: 2px solid #0077cc;
     padding: 8px 16px;
     border-radius: 8px;
     text-decoration: none;
@@ -125,11 +91,11 @@
 }
 
 .contact-button:hover {
-    background-color: #51b7ff; 
-    color: #fff; 
+    background-color: #51b7ff;
+    color: #fff;
 }
 
-
+/* Style de l'icône de login */
 .auth-icon {
     font-size: 22px;
     color: #0077cc;
@@ -138,21 +104,19 @@
 .auth-icon:hover {
     color: #005fa3;
 }
-.phone-input-container {
-    margin-bottom: 20px;
-}
+
+/* Dropdown menu */
 .dropdown {
     position: relative;
     display: flex;
     align-items: center;
     height: 100%;
     margin: 0 15px;
-    bottom:6px;
+    bottom: 6px;
     right: 19px;
-  }
-  
-  
-  .dropdown-button {
+}
+
+.dropdown-button {
     background: none;
     border: none;
     color: #000000;
@@ -161,18 +125,17 @@
     font-size: 16px;
     padding: 10px;
     line-height: 1;
-  }
-  
-  
-  .dropdown-button:hover {
+}
+
+.dropdown-button:hover {
     color: #0056b3;
-  }
-  
-  .arrow {
+}
+
+.arrow {
     margin-left: 5px;
-  }
-  
-  .dropdown-menu {
+}
+
+.dropdown-menu {
     position: absolute;
     top: 40px;
     left: 0;
@@ -182,37 +145,39 @@
     padding: 10px 0;
     z-index: 1000;
     min-width: 220px;
-  }
-  
-  .dropdown-menu li {
+}
+
+.dropdown-menu li {
     padding: 10px 20px;
     list-style: none;
     cursor: pointer;
     color: #333;
-  }
-  
-  .dropdown-menu li:hover {
+}
+
+.dropdown-menu li:hover {
     background-color: #f0f0f0;
     color: #007bff;
-  }
-  
-  
+}
 
 /* Responsive mobile */
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: column;
+        height: auto;
     }
 
-    .navbar-links {
+    .nav-menu {
         flex-direction: column;
         align-items: center;
+        margin-top: 10px;
     }
 
     .navbar-right {
         margin-top: 10px;
         flex-direction: column;
     }
-}
 
-  
+    .logo-img {
+        width: 100px;
+    }
+}
