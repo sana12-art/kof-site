@@ -40,7 +40,7 @@ function Apropos() {
         <div className="text-content">
           <h3>Notre Histoire</h3>
           <p>
-            Fondée il y a plus de deux décennies, KOF a été créée avec une vision claire : offrir des solutions de conseil et de formation adaptées aux besoins évolutifs des entreprises.
+             KOF a été créée avec une vision claire : offrir des solutions de conseil et de formation adaptées aux besoins évolutifs des entreprises.
             Nous avons élargi notre portefeuille de services pour répondre aux défis complexes, tout en restant fidèles à nos valeurs fondamentales : intégrité, excellence et engagement envers nos clients.
           </p>
         </div>
