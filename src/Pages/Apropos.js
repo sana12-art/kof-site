@@ -98,7 +98,7 @@ function Apropos() {
 
       <section className="call-to-action">
         <h2 className="cta-title">Pionnier en Conseil et Formation d'Entreprise</h2>
-        <a href="#services" className="cta-button">Découvrir nos services</a>
+        <Link to="/services" className="cta-button">Découvrir nos services</Link>
       </section>
 
       <section className="call-to-action join-us">
