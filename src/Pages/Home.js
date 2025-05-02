@@ -60,60 +60,59 @@ const Home = () => {
         </div>
 
         <motion.div
-          className="hero-right"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <form className="devis-form" onSubmit={(e) => e.preventDefault()}>
-            <h3 className="form-heading">Gratuit et sans engagement</h3>
+  className="hero-right"
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 1 }}
+>
+  <form className="devis-form" onSubmit={(e) => e.preventDefault()}>
+    <h3 className="form-heading">Gratuit et sans engagement</h3>
 
-            <div className="form-row">
-              <input type="text" placeholder="Nom" required />
-              <input type="text" placeholder="Prénom" required />
-            </div>
-            <div className="phone-input-container">
-              <PhoneInput
-                country={'fr'}
-                inputStyle={{
-                  width: '100%',
-                  height: '50px',
-                  fontSize: '16px',
-                  borderRadius: '8px',
-                }}
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                  autoFocus: false,
-                }}
-              />
-            </div>
+    <div className="form-row">
+      <input type="text" placeholder="Nom" required />
+      <input type="text" placeholder="Prénom" required />
+    </div>
+    
+    <div className="phone-input-container">
+      <PhoneInput
+        country={'fr'}
+        inputStyle={{
+          width: '100%',
+          height: '40px',
+          fontSize: '14px',
+          borderRadius: '8px',
+        }}
+        inputProps={{
+          name: 'phone',
+          required: true,
+        }}
+      />
+    </div>
 
+    <input
+      type="email"
+      placeholder="Adresse email"
+      required
+      className="single-line-input"
+    />
 
-            <input
-              type="email"
-              placeholder="Adresse email"
-              required
-              className="single-line-input"
-            />
+    <input
+      type="text"
+      placeholder="Votre chiffre d'affaires annuel HT (€)"
+      required
+      className="single-line-input"
+    />
 
-            <input
-              type="text"
-              placeholder="Votre chiffre d'affaires annuel HT (€)"
-              required
-              className="single-line-input"
-            />
+    <p className="form-disclaimer">
+      En cliquant sur <strong>"Demandez votre devis"</strong>, vous acceptez d'être contacté par KOF.
+      Si vous voulez en savoir plus sur l'utilisation de vos données personnelles.
+    </p>
 
-            <p className="form-disclaimer">
-              En cliquant sur <strong>"Demandez votre devis"</strong>, vous acceptez d'être contacté par KOF. <br />
-              Si vous voulez en savoir plus sur l'utilisation de vos données personnelles.{' '}
-            </p>
+    <button type="submit" className="form-button">Demandez votre devis</button>
 
-            <button type="submit" className="form-button">Demandez votre devis</button>
-
-            <p className="form-secure">100% sécurisé. Tarifs transparents.</p>
-          </form>
-        </motion.div>
+    <p className="form-secure">100% sécurisé. Tarifs transparents.</p>
+  </form>
+</motion.div>
 
 
         <section className="why-section">

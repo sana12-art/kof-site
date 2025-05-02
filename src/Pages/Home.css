@@ -304,115 +304,101 @@
   .more-button:hover::after {
     transform: translateX(5px);
   }
-  /* 🌐 Responsive tablette (entre 768px et 1024px) */
-@media screen and (max-width: 1024px) {
-  .hero-section {
-    flex-direction: column;
-    padding: 80px 30px;
-    text-align: center;
-  }
-
-  .hero-left,
-  .hero-right {
-    max-width: 100%;
-  }
-
-  .cta-button {
-    width: 80%;
-    margin: 30px auto;
-  }
-
-  .why-cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .card {
-    width: 45%;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 2rem;
-  }
-}
-
-/* 📱 Responsive mobile (moins de 768px) */
+ /* Ajoutez ces modifications à la fin de votre fichier Home.css */
 @media screen and (max-width: 768px) {
   .hero-section {
-    flex-direction: column;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .hero-left,
-  .hero-right {
-    max-width: 100%;
+    padding: 40px 15px;
   }
 
   .hero-left h1 {
     font-size: 2rem;
+    line-height: 1.2;
   }
 
   .hero-left p {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 20px;
   }
 
   .cta-button {
-    width: 90%;
-    margin: 30px auto;
-    font-size: 1rem;
+    width: 100%;
+    margin: 20px auto;
+    padding: 12px;
+    font-size: 0.9rem;
+    white-space: normal;
+    margin-left: 0;
   }
 
-  .why-cards {
+  .hero-right {
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .devis-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .form-heading {
+    font-size: 1.2rem;
+  }
+
+  .devis-form input {
+    min-width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-row {
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
   }
 
-  .card {
-    width: 90%;
-    margin: 0 auto;
+  .form-button {
+    padding: 12px;
+    font-size: 14px;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-    gap: 2rem;
+  .form-disclaimer {
+    font-size: 10px;
   }
 
   .service-card {
-    padding: 2rem 1.5rem;
+    min-height: auto;
+    padding: 20px;
   }
 
   .service-icon {
     width: 100%;
     height: auto;
+    margin-bottom: 15px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
   }
 }
-@media screen and (max-width: 768px) {
-  nav ul {
-    padding: 0;
-    margin: 0;
-  }
 
-  nav li {
-    margin: 10px 0;
-    font-size: 1.1rem;
-  }
+/* Ajoutez cette nouvelle classe */
+.cta-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #2e93ff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 500px;
+  white-space: normal;
+}
 
-  .cta-button,
-  .contact-button {
-    margin: 10px auto;
-    display: block;
-    width: 90%;
-    font-size: 1rem;
-  }
-
-  .user-icon {
-    display: block;
-    margin: 15px auto 0 auto;
-    font-size: 1.5rem;
-  }
+/* Modification pour les cartes de service */
+.service-card {
+  min-height: 400px;
 }
