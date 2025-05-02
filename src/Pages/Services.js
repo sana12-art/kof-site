@@ -9,6 +9,7 @@ import imgFormation from "../assets/formation.jpg";
 import imgGestion from "../assets/gestion.jpg";
 import imgFinancier from "../assets/financier.jpg";
 import imgAccompagnement from "../assets/accompagnement.jpg";
+import imgFiscal from "../assets/fiscal.jpg";
 
 const Services = () => {
   return (
@@ -53,7 +54,7 @@ const Services = () => {
 
       <ServiceBlock
         title="Conseil Fiscal"
-        image={imgCompta}
+        image={imgFiscal}
         description="Notre cabinet vous aide à optimiser votre fiscalité et à sécuriser vos obligations."
         items={[
           "Optimisation de la charge fiscale de l’entreprise",
