@@ -9,6 +9,11 @@ const Navbar = () => {
 
     // Fonction pour afficher/masquer le sous-menu "Ressources"
     const toggleResourcesMenu = () => setShowResources(!showResources);
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+    };
 
     return (
         <nav className='navbar'>
@@ -21,7 +26,11 @@ const Navbar = () => {
                 </div>
 
                 {/* Liens de navigation au centre */}
-                <div className="navbar-links">
+                <div className="menu-icon" onClick={toggleMobileMenu}>
+                    <i className={isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
+                </div>
+
+                <div className={`navbar-links ${isMobileMenuOpen ? 'mobile-menu' : ''}`}>
                 <ul className="nav-menu">
                         <li><Link to="/" className="nav-link">Accueil</Link></li>
                         <li><Link to="/services" className="nav-link">Services</Link></li>

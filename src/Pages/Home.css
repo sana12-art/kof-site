@@ -159,6 +159,7 @@
 }
 
 
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero-section {
@@ -383,5 +384,30 @@
   .service-icon {
     width: 100%;
     height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  .cta-button,
+  .contact-button {
+    margin: 10px auto;
+    display: block;
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .user-icon {
+    display: block;
+    margin: 15px auto 0 auto;
+    font-size: 1.5rem;
   }
 }
