@@ -1,0 +1,149 @@
+/* Général */
+.services-page {
+    font-family: 'Arial', sans-serif;
+    color: #1a1a1a;
+    background-color: #fff;
+    line-height: 1.6;
+  }
+  
+  /* Section d’intro */
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdf4ec;
+    padding: 60px 80px;
+    flex-wrap: wrap;
+  }
+  
+  .services-header-content {
+    max-width: 600px;
+  }
+  
+  .services-header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .services-header p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .header-image {
+    width: 320px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Bloc Service */
+  .service-section {
+    display: flex;
+    align-items: center;
+    padding: 60px 80px;
+    gap: 40px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .service-section.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .service-image {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .service-content {
+    flex: 1;
+    max-width: 550px;
+  }
+  
+  .service-content h2 {
+    color: #004080;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .service-content ul {
+    padding-left: 20px;
+  }
+  
+  .service-content ul li {
+    list-style-type: disc;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+  }
+  
+  /* Bouton En savoir plus */
+  .service-content button {
+    margin-top: 15px;
+    background-color: #f4d29a;
+    color: #000;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .service-content button:hover {
+    background-color: #e6be7e;
+  }
+  /* Responsive (mobile & tablette) */
+@media (max-width: 768px) {
+    .services-header {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+    }
+  
+    .services-header-content {
+      max-width: 100%;
+    }
+  
+    .header-image {
+      width: 90%;
+      margin-top: 20px;
+    }
+  
+    .service-section {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+    }
+  
+    .service-section.reverse {
+      flex-direction: column;
+    }
+  
+    .service-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .service-content {
+      max-width: 100%;
+      padding-top: 20px;
+    }
+  
+    .service-content h2 {
+      font-size: 20px;
+    }
+  
+    .service-content ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+  
+    .service-content button {
+      margin-top: 20px;
+    }
+  }
+  

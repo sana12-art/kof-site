@@ -1,31 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.png';
-import DropdownMenu from '../Pages/DropdownMenu'; // ✅ bon chemin relatif à src/components/Navbar.js
+import DropdownMenu from '../Pages/DropdownMenu'; // Si tu veux un menu déroulant
 
 const Navbar = () => {
+    const [showResources, setShowResources] = useState(false); // State pour gérer l'affichage du sous-menu "Ressources"
+
+    // Fonction pour afficher/masquer le sous-menu "Ressources"
+    const toggleResourcesMenu = () => setShowResources(!showResources);
+
     return (
         <nav className='navbar'>
-     
-      <div className='navbar-container'>
+            <div className='navbar-container'>
+                {/* Logo à gauche */}
                 <div className='navbar-logo'>
                     <Link to="/">
                         <img src={logo} alt="Logo KOF" className='logo-img' />
                     </Link>
                 </div>
 
-                {/* Liens au centre */}
-                <nav className="navbar">
-                    <ul className="nav-menu">
+                {/* Liens de navigation au centre */}
+                <div className="navbar-links">
+                <ul className="nav-menu">
                         <li><Link to="/" className="nav-link">Accueil</Link></li>
                         <li><Link to="/services" className="nav-link">Services</Link></li>
                         <li><Link to="/creation-entreprise" className="nav-link">Création d'entreprise</Link></li>
-                    </ul>
-                </nav>
+                        
+                        {/* Dropdown Resources */}
+                        <li className="nav-item dropdown">
+                            <span className="nav-link dropdown-toggle">Ressources</span>
+                            <div className="dropdown-menu">
+                                <Link to="/blog" className="dropdown-item">Blog</Link>
+                                <Link to="/centre-aide" className="dropdown-item">Centre d’aide</Link>
+                                <Link to="/smile-your-planet" className="dropdown-item">Smile Your Planet</Link>
+                                <Link to="/webinar" className="dropdown-item">Webinar</Link>
+                                <Link to="/presse" className="dropdown-item">Presse</Link>
+                            </div>
+                        </li>
+                </ul>
 
+                </div>
 
-                {/* Téléphone + bouton + icône à droite */}
+                {/* Téléphone + boutons à droite */}
                 <div className="navbar-right">
                     <span className="phone-button">01 53 10 32 06</span>
                     <Link to="/contact" className="contact-button">Nous contacter</Link>

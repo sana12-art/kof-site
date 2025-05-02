@@ -51,7 +51,7 @@
 }
 
 .nav-link:hover {
-    color: #0077cc; /* Color on hover */
+    color: #047bf2; /* Color on hover */
 }
 
 /* Section droite (Téléphone, contact et login) */
@@ -105,59 +105,67 @@
     color: #005fa3;
 }
 
-/* Dropdown menu */
+
+
+
+
+
+
+
 .dropdown {
     position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
     display: flex;
     align-items: center;
-    height: 100%;
-    margin: 0 15px;
-    bottom: 6px;
-    right: 19px;
-}
-
-.dropdown-button {
-    background: none;
-    border: none;
-    color: #000000;
     font-weight: bold;
-    cursor: pointer;
     font-size: 16px;
-    padding: 10px;
-    line-height: 1;
-}
-
-.dropdown-button:hover {
-    color: #0056b3;
-}
-
-.arrow {
-    margin-left: 5px;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    padding: 10px 0;
-    z-index: 1000;
-    min-width: 220px;
-}
-
-.dropdown-menu li {
-    padding: 10px 20px;
-    list-style: none;
-    cursor: pointer;
     color: #333;
 }
 
-.dropdown-menu li:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
+.dropdown-toggle:hover {
+    color: #0077cc;
 }
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 100;
+    padding: 10px 0;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+}
+
+.dropdown-item {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #0077cc;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 /* Responsive mobile */
 @media (max-width: 768px) {
