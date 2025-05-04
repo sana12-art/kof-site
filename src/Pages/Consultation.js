@@ -76,31 +76,7 @@ const Consultation = () => {
                 </div>
             </div>
             
-            <footer className="site-footer">
-                <div className="footer-content">
-                    <div className="footer-left">
-                    <h2>Conseils personnalisés, <br />Réussites partagées</h2>
-                    <div className="footer-links">
-                        <a href="/">Accueil</a>
-                        <a href="/services">Services</a>
-                        <a href="/contact">Contact</a>
-                        <a href="/decouvrir">Découvrez Dynom</a>
-                    </div>
-                    </div>
-
-                    <div className="social-icons">
-                        <a href="#"><FaFacebookF /></a>
-                        <a href="#"><FaXTwitter /></a>
-                        <a href="#"><FaInstagram /></a>
-                    </div>
-                </div>
-
-                <hr />
-
-                <p className="footer-bottom">
-                    Crafted, Designed, And Developed With Care By <strong>ARTIFIVE</strong>
-                </p>
-            </footer>
+            
 
 
 
