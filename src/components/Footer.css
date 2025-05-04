@@ -1,0 +1,111 @@
+footer {
+    background-color: #f5f5f5 !important; /* forcé pour écraser un fond noir */
+    color: #000 !important; /* texte noir pour rester lisible */
+    padding: 50px 80px;
+    display: flex;
+    justify-content:center;
+    font-family: 'Arial', sans-serif;
+    align-items: flex-start; 
+    flex-wrap: nowrap;       
+    gap: 100px;           
+
+  }
+  
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 280px;
+  }
+  .footer-logo {
+    width: 150px;
+    align-self: flex-start; /* Aligne le logo au début de la section */
+    margin-bottom: -10px;
+    margin-left: -100px;
+}
+
+  
+  .footer-section .text {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-left: -110px;
+
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;  
+    padding-top: 70px;
+  }
+  
+  
+  .footer-links h4,
+  .footer-contact h4,
+  .footer-social h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+   
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  .footer-contact {
+    margin-top: 10px;  
+    padding-top: 71px;
+  }
+  
+  .footer-contact p {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;  
+    padding-top: 79px;
+  }
+  
+  .footer-social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+    margin-top: -10px;
+  }
+  
+  .footer-social-icons a {
+    color: #000;
+    transition: color 0.3s;
+  }
+  
+  .footer-social-icons a:hover {
+    color: #0077b5; /* Ex : bleu LinkedIn */
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    footer {
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px;
+    }
+  
+    .footer-section {
+      align-items: center;
+      text-align: center;
+      max-width: none;
+    }
+  }
+  
