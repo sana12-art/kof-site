@@ -17,8 +17,6 @@ import PhoneInput from 'react-phone-input-2';
 
 const Home = () => {
   const navigate = useNavigate();
-    
-
   return (
     <div className="main-content">
       <div className="hero-section">
@@ -99,7 +97,8 @@ const Home = () => {
           </div>
         </motion.div>
     
-
+       
+        
         <section className="why-section">
           <h2>Pourquoi nous choisir ?</h2>
           <div className="why-cards">

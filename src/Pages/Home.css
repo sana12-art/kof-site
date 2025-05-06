@@ -272,12 +272,13 @@
     justify-content: space-between; 
     height:20px ! important ;
   }
-  
+
   .service-icon {
-    width: 120px; /* Réduction importante */
-    height: 100px; /* Réduction importante */
+    width: 300px; /* Taille augmentée */
+    height: 300px; /* Taille augmentée */
     object-fit: contain;
-    margin-bottom: 10px; /* Réduit l'espace sous l'icône */
+    margin-bottom: 20px; /* Espace augmenté sous l'icône */
+    transition: transform 0.3s ease; /* Animation au survol */
   }
   
   .service-card h3 {
@@ -292,54 +293,7 @@
     font-size: 0.8rem;
   }
   
-  /* Version responsive */
-  @media (max-width: 900px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .service-icon {
-      width: 100px;
-      height: 80px;
-    }
-  }
   
-  @media (max-width: 600px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-      padding: 12px;
-    }
-  }
-  .more-button {
-    margin-top: auto; /* Pousse le bouton vers le bas */
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-  
-  /* Responsive */
-  @media (max-width: 900px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .service-card {
-      height: 280px;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-      height: auto;
-      min-height: 250px;
-    }
-  }
   .more-button {
     display: inline-flex;
     align-items: center;
@@ -371,11 +325,11 @@
 
 .react-tel-input .form-input,
 .react-tel-input input {
-  width: 400px !important;
+  width: 100% !important;
   height: 43px !important;
   padding-left: 48px; /* pour ne pas chevaucher le drapeau */
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 14px;
   box-sizing: border-box;
 }
@@ -383,96 +337,7 @@
   .more-button:hover::after {
     transform: translateX(5px);
   }
-  @media (max-width: 900px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
   
-  /* Responsive pour mobile */
-  @media (max-width: 600px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-  }
- /* Ajoutez ces modifications à la fin de votre fichier Home.css */
-@media screen and (max-width: 768px) {
-  .hero-section {
-    padding: 40px 15px;
-  }
-
-  .hero-left h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  .hero-left p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  .cta-button {
-    width: 100%;
-    margin: 20px auto;
-    padding: 12px;
-    font-size: 0.9rem;
-    white-space: normal;
-    margin-left: 0;
-  }
-
-  .hero-right {
-    width: 100%;
-    padding: 20px;
-    margin: 20px auto;
-  }
-
-  .devis-form {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .form-heading {
-    font-size: 1.2rem;
-  }
-
-  .devis-form input {
-    min-width: 100%;
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  .form-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .form-button {
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  .form-disclaimer {
-    font-size: 10px;
-  }
-
-  .service-card {
-    min-height: auto;
-    padding: 20px;
-  }
-
-  .service-icon {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1.5rem;
-  }
-}
-
 /* Ajoutez cette nouvelle classe */
 .cta-button {
   padding: 12px 24px;
@@ -580,4 +445,165 @@
   font-size: 1rem; /* ou 0.95rem */
   line-height: 1.5;
   margin-bottom: 30px;
+}
+/* Version mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 30px 15px;
+    gap: 20px;
+    background-color: #f5f5f5;
+  }
+
+  .hero-left, 
+  .hero-right {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero-left h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+    margin: 20px 0;
+    min-width: unset;
+    left: 0;
+    white-space: normal;
+  }
+
+  .hero-right {
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .devis-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .form-heading {
+    font-size: 1.3rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .devis-form input,
+  .devis-form .single-line-input {
+    min-width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Section Pourquoi nous choisir */
+  .why-section {
+    padding: 50px 15px;
+    margin-left: 0;
+  }
+
+  .why-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .why-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+  }
+
+  /* Section Services */
+  .services-section {
+    padding: 50px 45px;
+    margin-left: 0;
+  }
+
+  .services-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .service-card {
+    min-height: auto;
+    padding: 20px;
+    height: auto !important;
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+
+  .more-button {
+    margin-top: 15px;
+    font-size: 0.9rem;
+  }
+
+  /* Formulaire compact */
+  .compact-devis-container {
+    margin-top: 0;
+  }
+
+  .compact-form-title {
+    font-size: 1.3rem;
+  }
+
+  .compact-submit-btn {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Correction pour très petits écrans */
+@media (max-width: 480px) {
+  .hero-left h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-left p {
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .service-card {
+    padding: 15px;
+  }
 }

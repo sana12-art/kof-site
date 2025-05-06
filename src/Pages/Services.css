@@ -53,9 +53,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
 }
-
+.services-columns :hover{
+  color: #007bff;
+}
 .service-column {
   background-color: #f9f9f9;
   border-radius: 15px;
@@ -65,7 +67,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 150px; /* ou ajustable selon le contenu */
+  height: 140px; /* ou ajustable selon le contenu */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -115,7 +117,7 @@
   padding: 0 1rem;
 }
 
-.full-service-section h2, .missions-section h2 {
+.full-service-section h2, .missions-section h2, .guide-services h2, .critere-services h2 {
   color: #2e93ff;
   font-size: 1.8rem;
   margin: 2rem 0 1.5rem;
@@ -123,7 +125,7 @@
   padding-left: 1rem;
 }
 
-.full-service-section h2:before, .missions-section h2:before {
+.full-service-section h2:before, .missions-section h2:before, .guide-services h2:before, .critere-services h2:before{
   content: "";
   position: absolute;
   left: 0;
@@ -135,18 +137,18 @@
   border-radius: 2px;
 }
 
-.missions-list {
+.missions-list, .critere-list {
   list-style: none;
   padding: 0;
 }
 
-.mission-item {
+.mission-item, .critere-item {
   margin-bottom: 1.2rem;
   padding-left: 1.8rem;
   position: relative;
 }
 
-.mission-item:before {
+.mission-item:before, .critere-item:before{
   content: "→";
   color: #2e93ff;
   position: absolute;
@@ -282,4 +284,85 @@
   .service-category-title {
     font-size: 1.5rem;
   }
+}
+.service-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.service-modal {
+  background: #fff;
+  width: 90%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  color: #777;
+}
+
+.modal-content p {
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.modal-features {
+  display: flex;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.feature h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.feature ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.cta-button {
+  background-color: #1e88e5;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.whatsapp-link {
+  color: #25d366;
+  font-weight: bold;
+  text-decoration: none;
 }

@@ -26,8 +26,10 @@ const Footer = () => {
             <a href="#"><i className="fab fa-linkedin-in"></i></a>
             <a href="#"><i className="fab fa-instagram"></i></a>
             </div>
-        </div>
+            <img src={OEC} alt="Logo Experts-Comptables" className="footer-oec-logo" />
 
+        </div>
+            
         <div className="footer-contact">
             <h4>Contactez KOF</h4>
             <p>contact@kof.com</p>

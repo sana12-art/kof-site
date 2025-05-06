@@ -31,14 +31,14 @@ const Navbar = () => {
                 </div>
 
                 <div className={`navbar-links ${isMobileMenuOpen ? 'mobile-menu' : ''}`}>
-                <ul className="nav-menu">
+                    <ul className="nav-menu">
                         <li><Link to="/" className="nav-link">Accueil</Link></li>
                         <li><Link to="/services" className="nav-link">Services</Link></li>
                         <li><Link to="/creation-entreprise" className="nav-link">Création d'entreprise</Link></li>
-                        
-                        {/* Dropdown Resources */}
+                            
+                            {/* Dropdown Resources */}
                         <li className="nav-item dropdown">
-                            <span className="nav-link dropdown-toggle">Ressources</span>
+                        <span className="nav-link dropdown-toggle">Ressources</span>
                             <div className="dropdown-menu">
                                 <Link to="/blog" className="dropdown-item">Blog</Link>
                                 <Link to="/centre-aide" className="dropdown-item">Centre d’aide</Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
                                 <Link to="/presse" className="dropdown-item">Presse</Link>
                             </div>
                         </li>
-                </ul>
+                    </ul>
 
                 </div>
 
