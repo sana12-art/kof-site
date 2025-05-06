@@ -1,149 +1,285 @@
-/* Général */
+/* services.css */
+
+/* Styles généraux */
 .services-page {
-    font-family: 'Arial', sans-serif;
-    color: #1a1a1a;
-    background-color: #fff;
-    line-height: 1.6;
-  }
-  
-  /* Section d’intro */
-  .services-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fdf4ec;
-    padding: 60px 80px;
-    flex-wrap: wrap;
-  }
-  
-  .services-header-content {
-    max-width: 600px;
-  }
-  
-  .services-header h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .services-header p {
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .header-image {
-    width: 320px;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  /* Bloc Service */
-  .service-section {
-    display: flex;
-    align-items: center;
-    padding: 60px 80px;
-    gap: 40px;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .service-section.reverse {
-    flex-direction: row-reverse;
-  }
-  
-  .service-image {
-    width: 400px;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-  
-  .service-content {
-    flex: 1;
-    max-width: 550px;
-  }
-  
-  .service-content h2 {
-    color: #004080;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .service-content ul {
-    padding-left: 20px;
-  }
-  
-  .service-content ul li {
-    list-style-type: disc;
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: #333;
-  }
-  
-  /* Bouton En savoir plus */
-  .service-content button {
-    margin-top: 15px;
-    background-color: #f4d29a;
-    color: #000;
-    border: none;
-    padding: 10px 16px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .service-content button:hover {
-    background-color: #e6be7e;
-  }
-  /* Responsive (mobile & tablette) */
+  font-family: 'Roboto', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Titres */
+.main-title {
+  font-size: 2.1rem !important;
+  text-align: center;
+  margin-left: 100px !important;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+/* Section Cartes de Services */
+.services-cards-container {
+  margin-bottom: 4rem;
+}
+
+.service-category-section {
+  margin-bottom: 2rem;
+}
+
+.service-category-title {
+  color: #2e93ff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e1f0ff;
+}
+
+.services-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+.services-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.service-column {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 20px;
+  flex: 1 1 calc(25% - 20px); /* 4 par ligne */
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px; /* ou ajustable selon le contenu */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.service-column:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(53, 122, 234, 0.2);
+  color: #2e93ff;
+}
+.service-column h2{
+  font-size: 23px;
+  margin-left:40px;
+}
+.learn-more {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+  color: #0056b3;
+}
+
+
+
+/* Responsive */
 @media (max-width: 768px) {
-    .services-header {
-      flex-direction: column;
-      padding: 40px 20px;
-      text-align: center;
-    }
-  
-    .services-header-content {
-      max-width: 100%;
-    }
-  
-    .header-image {
-      width: 90%;
-      margin-top: 20px;
-    }
-  
-    .service-section {
-      flex-direction: column;
-      padding: 40px 20px;
-      text-align: center;
-    }
-  
-    .service-section.reverse {
-      flex-direction: column;
-    }
-  
-    .service-image {
-      width: 100%;
-      height: auto;
-    }
-  
-    .service-content {
-      max-width: 100%;
-      padding-top: 20px;
-    }
-  
-    .service-content h2 {
-      font-size: 20px;
-    }
-  
-    .service-content ul {
-      text-align: left;
-      padding-left: 20px;
-    }
-  
-    .service-content button {
-      margin-top: 20px;
-    }
+  .services-columns {
+    flex-direction: column;
+    align-items: center;
   }
   
+  .service-column {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Sections de texte */
+.full-service-section, .missions-section {
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.full-service-section h2, .missions-section h2 {
+  color: #2e93ff;
+  font-size: 1.8rem;
+  margin: 2rem 0 1.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.full-service-section h2:before, .missions-section h2:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 4px;
+  background: #2e93ff;
+  border-radius: 2px;
+}
+
+.missions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.mission-item {
+  margin-bottom: 1.2rem;
+  padding-left: 1.8rem;
+  position: relative;
+}
+
+.mission-item:before {
+  content: "→";
+  color: #2e93ff;
+  position: absolute;
+  left: 0;
+}
+
+/* Section Devis */
+.devis-section {
+  background: #f8f9fa;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  margin-top: 3rem;
+}
+
+.devis-section h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.devis-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background: #2e93ff;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: block;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 300px;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1a7ae6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.required-fields {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.contact-info {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.phone {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.contact-text {
+  color: #2e93ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.callback-section {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.callback-section h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.offer {
+  color: #2e93ff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    height: auto;
+  }
+  
+  .devis-section {
+    padding: 2rem 1rem;
+  }
+  
+  .service-category-title {
+    font-size: 1.5rem;
+  }
+}

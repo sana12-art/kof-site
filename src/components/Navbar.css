@@ -177,61 +177,80 @@
   }
   
   /* Version mobile */
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .navbar-container {
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
+      padding: 10px 15px;
+      height: 60px;
     }
   
     .menu-icon {
       display: block;
-      margin-bottom: 10px;
+      order: 2; /* Place l'icône menu à droite */
     }
   
     .navbar-links {
       display: none;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: white;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 15px;
     }
   
     .navbar-links.mobile-menu {
       display: flex;
+      flex-direction: column;
     }
   
     .nav-menu {
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
+      width: 100%;
     }
   
     .navbar-right {
+      display: none; /* Cache les éléments de droite dans le header */
+    }
+  
+    /* Affiche les éléments de contact dans le menu déroulant */
+    .navbar-links.mobile-menu .navbar-right {
+      display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: 15px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+  
+    .logo-img {
+      width: 100px;
+      order: 1; /* Logo à gauche */
+    }
+  
+    /* Style spécifique pour le texte promotionnel */
+    .promo-text {
+      font-size: 14px;
+      color: #2e93ff;
+      font-weight: bold;
+      text-align: center;
+      margin: 5px 0;
+      white-space: nowrap;
+    }
+  
+    /* Style pour les infos de contact */
+    .contact-info {
+      font-size: 14px;
+      text-align: center;
+    }
+    
+    .phone-number {
+      font-weight: bold;
+      color: #2c3e50;
     }
   }
-  
-
-
-/* Responsive mobile */
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .nav-menu {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    .navbar-right {
-        margin-top: 10px;
-        flex-direction: column;
-    }
-
-    .logo-img {
-        width: 100px;
-    }
-}

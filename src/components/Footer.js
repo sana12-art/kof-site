@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
-import logo from '../assets/logo.png'; // adapte le chemin si besoin
+import logo from '../assets/logo.png';
+import OEC from '../assets/Logo-OEC.svg';
 
 const Footer = () => {
   return (
@@ -31,6 +32,7 @@ const Footer = () => {
             <h4>Contactez KOF</h4>
             <p>contact@kof.com</p>
         </div>
+        
     </footer>
 
   );

@@ -29,7 +29,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="hero-subtitle"
           >
-            Construire votre succès avec KOF
+            Construire votre succès avec KOF-EXPERTS
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, x: -50 }} 
@@ -45,7 +45,7 @@ const Home = () => {
             transition={{ duration: 1.2, delay: 0.6 }}
             className="hero-description"
           >
-            KOF vous accompagne dans toutes les étapes de la vie de votre entreprise : création, gestion, conseil fiscal et juridique, ressources humaines, formations et plus encore. Notre équipe d’experts est à vos côtés pour transformer vos idées en réalité.
+            KOF-EXPERTS vous accompagne dans toutes les étapes de la vie de votre entreprise : création, gestion, conseil fiscal et juridique, ressources humaines, formations et plus encore. Notre équipe d'experts est à vos côtés pour transformer vos idées en réalité.
           </motion.p>
 
           <motion.button
@@ -55,65 +55,50 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 1, delay: 0.9 }}
           >
-            Réserver une consultation gratuite sans engagement dès aujourd'hui
+            Réserver une consultation gratuite et sans engagement dès aujourd'hui
           </motion.button>
         </div>
 
         <motion.div
-  className="hero-right"
-  initial={{ opacity: 0, x: 50 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1 }}
->
-  <form className="devis-form" onSubmit={(e) => e.preventDefault()}>
-    <h3 className="form-heading">Gratuit et sans engagement</h3>
+          className="hero-right"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="compact-devis-container">
+            <h3 className="compact-form-title">Obtenir un devis gratuit
+            et sans engagement</h3>
+            
+            <form className="compact-devis-form">
+              <input type="text" placeholder="Nom" required />
 
-    <div className="form-row">
-      <input type="text" placeholder="Nom" required />
-      <input type="text" placeholder="Prénom" required />
-    </div>
+              <PhoneInput
+                country={'fr'}
+                enableSearch={true}
+                preferredCountries={['fr', 'ma', 'us', 'gb']}
+                inputClass="form-input"
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  autoFocus: false
+                }}
+                placeholder="Numéro de téléphone"
+              />
+
+              <input type="email" placeholder="Adresse email" required />
+              <input type="text" placeholder="Votre chiffre d'affaires annuel HT (€)" />
+
+              <button type="submit" className="compact-submit-btn">
+                Demandez votre devis
+              </button>
+
+              <p className="compact-legal">
+                En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
+              </p>
+            </form>
+          </div>
+        </motion.div>
     
-    <div className="phone-input-container">
-      <PhoneInput
-        country={'fr'}
-        inputStyle={{
-          width: '100%',
-          height: '40px',
-          fontSize: '14px',
-          borderRadius: '8px',
-        }}
-        inputProps={{
-          name: 'phone',
-          required: true,
-        }}
-      />
-    </div>
-
-    <input
-      type="email"
-      placeholder="Adresse email"
-      required
-      className="single-line-input"
-    />
-
-    <input
-      type="text"
-      placeholder="Votre chiffre d'affaires annuel HT (€)"
-      required
-      className="single-line-input"
-    />
-
-    <p className="form-disclaimer">
-      En cliquant sur <strong>"Demandez votre devis"</strong>, vous acceptez d'être contacté par KOF.
-      Si vous voulez en savoir plus sur l'utilisation de vos données personnelles.
-    </p>
-
-    <button type="submit" className="form-button">Demandez votre devis</button>
-
-    <p className="form-secure">100% sécurisé. Tarifs transparents.</p>
-  </form>
-</motion.div>
-
 
         <section className="why-section">
           <h2>Pourquoi nous choisir ?</h2>
@@ -171,7 +156,7 @@ const Home = () => {
             <div className="service-card">
               <img src={comptabilité} alt="Comptabilité" className="service-icon" />
               <h3>Comptabilité</h3>
-              <p>Suivi rigoureux et analyse de vos comptes pour une vision claire de vos finances.</p>
+              
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -183,7 +168,6 @@ const Home = () => {
             <div className="service-card">
               <img src={creation} alt="Création d’entreprise" className="service-icon" />
               <h3>Création d’entreprise</h3>
-              <p>Obtenez conseils juridiques spécialisés pour protéger et faire croître votre entreprise.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -194,7 +178,6 @@ const Home = () => {
             <div className="service-card">
               <img src={fiscal} alt="Conseil fiscal" className="service-icon" />
               <h3>Conseil fiscal</h3>
-              <p>Obtenez conseils juridiques spécialisés pour protéger et faire croître votre entreprise.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -205,7 +188,6 @@ const Home = () => {
             <div className="service-card">
               <img src={gestion} alt="Conseil en gestion" className="service-icon" />
               <h3>Conseil en gestion</h3>
-              <p>Découvrez stratégies optimisation fiscale sur mesure maximiser profits minimiser charges fiscales. Experts guident travers implications gestion fiscale efficace.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -216,7 +198,6 @@ const Home = () => {
             <div className="service-card">
               <img src={finance} alt="Conseil financier" className="service-icon" />
               <h3>Conseil Financier</h3>
-              <p>Maximisez vos profits et minimisez vos charges avec une gestion fiscale efficace.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -227,7 +208,6 @@ const Home = () => {
             <div className="service-card">
               <img src={juridique} alt="Conseil juridique" className="service-icon" />
               <h3>Conseil Juridique</h3>
-              <p>Notre équipe vous aide à naviguer dans les complexités légales pour assurer votre conformité.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -238,7 +218,6 @@ const Home = () => {
             <div className="service-card">
               <img src={rh} alt="RH et Conseil Social" className="service-icon" />
               <h3>RH et Conseil Social</h3>
-              <p>Améliorez vos politiques RH pour une gestion efficace de votre capital humain.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -249,7 +228,6 @@ const Home = () => {
             <div className="service-card">
               <img src={formations} alt="Formations" className="service-icon" />
               <h3>Formations</h3>
-              <p>Développez vos compétences en comptabilité, gestion, marketing et fiscalité.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}
@@ -260,7 +238,6 @@ const Home = () => {
             <div className="service-card">
               <img src={acompagnement} alt="Accompagnement sur mesure" className="service-icon" />
               <h3>Accompagnement sur mesure</h3>
-              <p>Pour les entreprises investissant au Maroc, saisissez les meilleures opportunités du marché.</p>
               <button 
                 className="more-button" 
                 onClick={() => navigate('/services')}

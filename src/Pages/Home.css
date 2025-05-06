@@ -1,48 +1,59 @@
 .hero-section{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-start;
     flex-wrap: wrap;
-    background-color: #f5f5f5;
-    padding: 100px 50px;
+    background-color: hsl(0, 0%, 97%);
     text-align: left;
+    gap:40px;
+
+}
+.hero-subtitle{
+  color: black;
 }
 .hero-left {
     flex: 1;
     max-width:50% ;
+    padding-top: 4px;
 }
-  
+
 .hero-left h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 .hero-left p{
-    font-size: 1.5rem;
-    margin-bottom: 40px; ;
-}
-.cta-button {
-    padding: 12px 24px;
-    font-size: 1rem;
-    background-color: #2e93ff;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
-    margin-left: 50%;
-    margin-top: 10%;
-    margin-bottom: 20%;
-    width: 600px;
-    white-space: nowrap;
+    font-size: 1.1rem;
+    margin-bottom: 40px; 
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.cta-button:hover{
-    background-color:  #7ebcfd;
+
+.cta-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: #1a7ae6 !important;
+  color: white;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto;
+  width: 100%;           /* Prend toute la largeur disponible */
+  max-width: 1200px;        /* limite maximale */
+  white-space: normal;
+  text-align: center;
 }
+
+
+
+.cta-button:hover {
+  background-color: #2868b0 !important; 
+}
+
 .hero-right {
-  max-width: 700px;
-  margin: 60px auto;
+  max-width: 600px;
+  margin: 20px auto;
   padding: 40px;
   background-color: #fff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -50,7 +61,7 @@
 }
 
 .devis-form {
-  width: 360px;
+  width: 300px;
   padding: 20px;
   background-color: #fff;
   border-radius: 12px;
@@ -186,6 +197,8 @@
     padding: 80px 20px;
     text-align: center;
     background-color: #fff;
+    margin-left:-52px;
+
   }
   
   .why-section h2 {
@@ -196,9 +209,15 @@
   
   .why-cards {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 30px;
+  }
+  @media (max-width: 768px) {
+    .why-cards {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   
   .card {
@@ -223,6 +242,8 @@
     text-align: center;
     padding: 60px 20px;
     background-color: #f9f9f9;
+    margin-left:67px;
+
   }
   
   .services-section h2 {
@@ -233,48 +254,91 @@
   
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    padding: 4rem 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   
   .service-card {
     background-color: #fff;
-    border-radius: 30px;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 500px;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    height:20px ! important ;
   }
   
   .service-icon {
-    width: 310px;
-    height: 250px;
+    width: 120px; /* Réduction importante */
+    height: 100px; /* Réduction importante */
     object-fit: contain;
-    margin-bottom: 2.5rem;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  
-  .service-card:hover .service-icon {
-    transform: scale(1.1);
-    filter: brightness(1.15);
+    margin-bottom: 10px; /* Réduit l'espace sous l'icône */
   }
   
   .service-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    font-size: 1.1rem; /* Texte plus petit */
+    margin: 10px 0; /* Espacement réduit */
+    text-align: center;
   }
   
-  .service-card p {
-    font-size: 1.2rem;
-    color: #333;
-    line-height: 1.7;
+  .more-button {
+    margin-top: 10px; /* Espacement réduit */
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  /* Version responsive */
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-icon {
+      width: 100px;
+      height: 80px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+      padding: 12px;
+    }
+  }
+  .more-button {
+    margin-top: auto; /* Pousse le bouton vers le bas */
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .service-card {
+      height: 280px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-card {
+      height: auto;
+      min-height: 250px;
+    }
   }
   .more-button {
     display: inline-flex;
@@ -300,9 +364,36 @@
   .more-button:hover {
     color: #1565c0;
   }
-  
+  /* Assure la même largeur que les autres champs input */
+.react-tel-input {
+  width: 100%;
+}
+
+.react-tel-input .form-input,
+.react-tel-input input {
+  width: 400px !important;
+  height: 43px !important;
+  padding-left: 48px; /* pour ne pas chevaucher le drapeau */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
   .more-button:hover::after {
     transform: translateX(5px);
+  }
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Responsive pour mobile */
+  @media (max-width: 600px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
   }
  /* Ajoutez ces modifications à la fin de votre fichier Home.css */
 @media screen and (max-width: 768px) {
@@ -393,12 +484,100 @@
   cursor: pointer;
   display: block;
   margin: 20px auto;
-  width: 100%;
-  max-width: 500px;
-  white-space: normal;
+  width: auto; /* Changé de 100% à auto */
+  min-width: 400px; /* Utilisez min-width au lieu de max-width */
+  white-space: nowrap; /* Empêche le saut de ligne */
+  text-align: center; /* Centre le texte horizontalement */
+  position: relative;
+  left: -20px; /* Ajustez la valeur selon le décalage souhaité */
 }
 
 /* Modification pour les cartes de service */
 .service-card {
   min-height: 400px;
+}
+.hero-right {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  margin-top: -10px;
+
+}
+
+/* Nouveau formulaire compact */
+.compact-devis-container {
+  width: 100%;
+  margin-top: -10px;
+}
+
+.compact-form-title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.compact-devis-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.compact-devis-form input {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.compact-devis-form input:focus {
+  outline: none;
+  border-color: #2e93ff;
+  box-shadow: 0 0 0 2px rgba(46, 147, 255, 0.2);
+}
+
+.compact-submit-btn {
+  background: rgb(46, 147, 255);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.compact-submit-btn:hover {
+  background: #1a7ae6;
+  transform: translateY(-2px);
+}
+
+.compact-legal {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 15px;
+  text-align: center;
+}
+.hero-title {
+  font-size: 2rem; /* ou 1.8rem selon le besoin */
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1rem; /* ou 0.95rem */
+  line-height: 1.5;
+  margin-bottom: 30px;
 }

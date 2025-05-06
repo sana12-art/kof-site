@@ -7,7 +7,9 @@ footer {
     font-family: 'Arial', sans-serif;
     align-items: flex-start; 
     flex-wrap: nowrap;       
-    gap: 100px;           
+    gap: 100px;   
+    margin-left:-55px;        
+    position: relative; 
 
   }
   
@@ -76,6 +78,7 @@ footer {
     gap: 10px;
     margin-top: 10px;  
     padding-top: 79px;
+
   }
   
   .footer-social-icons {
@@ -92,6 +95,26 @@ footer {
   
   .footer-social-icons a:hover {
     color: #0077b5; /* Ex : bleu LinkedIn */
+  }
+  .footer-content {
+    display: flex;
+    justify-content: space-between; /* ou space-around / space-evenly */
+    align-items: center;
+    padding: 20px;
+    margin-left: -10px;
+  }
+  
+  .expert-logo {
+    flex-shrink: 0; /* empêche que ce bloc rétrécisse */
+    margin-right: auto; /* pousse l'élément vers la gauche */
+    margin-top: 410px;
+    position: absolute;
+
+  }
+  
+  .experts {
+    width: 250px; /* ajuste selon ta taille souhaitée */
+    height: auto;
   }
   
   /* Responsive */

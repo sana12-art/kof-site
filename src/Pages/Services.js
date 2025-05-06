@@ -1,166 +1,138 @@
-import React from "react";
+import React from 'react';
 import "./Services.css";
-import imgHeader from "../assets/header-kof.jpg";
-import imgCompta from "../assets/compta.jpg";
-import imgJuridique from "../assets/juridique.jpg";
-import imgRH from "../assets/rh.jpg";
-import imgCreation from "../assets/creation.jpg";
-import imgFormation from "../assets/formation.jpg";
-import imgGestion from "../assets/gestion.jpg";
-import imgFinancier from "../assets/financier.jpg";
-import imgAccompagnement from "../assets/accompagnement.jpg";
-import imgFiscal from "../assets/fiscal.jpg";
 
 const Services = () => {
+  // Données des services sous forme de cartes
+  const serviceCards = [
+    {
+     
+      items: [
+        { 
+          title: "Expertise comptable", 
+        },
+        { 
+          title: "Le portail KOF-EXPERTS", 
+        },
+        { 
+          title: "Business Plan", 
+        },
+        { 
+          title: "Création d'entreprise", 
+        },
+        { 
+          title: "Juridique", 
+        }
+      ]
+    },
+    {
+      items: [
+        { 
+          title: "Fiscal", 
+        },
+       
+        { 
+          title: "Comptabilité", 
+        },
+        { 
+          title: "Social", 
+        },
+        { 
+          title: "Création d'entreprise offerte !", 
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="services-page">
-      {/* Intro */}
-      <section className="services-header">
-        <div className="services-header-content">
-          <h1>Bien plus qu'un cabinet d'expertise comptable, un partenaire d'avenir</h1>
-          <p>Le cabinet KOF vous accompagne dans le développement et la croissance de votre activité.</p>
-        </div>
-        <img src={imgHeader} alt="Partenaire d'avenir" className="header-image" />
+     
+        {/* Grille des cartes de services */}
+      <div className="services-container">
+        <h1>Nos services pour un accompagnement comptable sur-mesure</h1>
+          
+          <div className="services-columns">
+            <div className="service-column">
+              <h2>Expertise comptable</h2>
+              <button className="learn-more">➔</button>
+            </div>
+            <div className="service-column">
+              <h2>Le portail KOF-EXPERTS</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            <div className="service-column">
+              <h2>Business Plan</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            <div className="service-column">
+              <h2>Création d'entreprise</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            <div className="service-column">
+              <h2>Juridique</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            
+
+            {/* Colonne Fiscal */}
+            <div className="service-column">
+              <h2>Fiscal</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            <div className="service-column">
+              <h2>Comptabilité</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            <div className="service-column">
+              <h2>Social</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+            <div className="service-column">
+              <h2>Formations</h2>
+              <button className="learn-more">➔</button>
+
+            </div>
+
+          
+      </div>
+    </div>
+
+      {/* Description Full Service */}
+      <section className="full-service-section">
+        <p>Alors que certains cabinets comptables se concentrent sur la prestation d'une sélection spécifique de services, d'autres proposent une solution intégrale à leurs clients, communément nommée "Full service"  .</p>
+        
+        <p>Apprenez tout sur le comptable full service, des prestations offertes aux bénéfices d'engager un tel professionnel, sans oublier les facteurs à considérer lors de la sélection de votre comptable full service.</p>
+        
+        <h2>Expert comptable full service : définition</h2>
+        
+        <p>Un expert comptable full service est un expert-comptable qui offre une gamme complète de services comptables, fiscaux, sociaux et financiers à ses clients.</p>
       </section>
 
-      {/* Services enrichis */}
-      <ServiceBlock
-        title="Comptabilité"
-        image={imgCompta}
-        description="Notre expertise comptable couvre l’ensemble des besoins de votre entreprise, quel que soit son secteur."
-        items={[
-          "Établissement des comptes annuels & situations intermédiaires",
-          "Élaboration de tableaux de bord et budgets prévisionnels",
-          "Établissement des déclarations fiscales",
-          "Reporting financier, réconciliations interco / BU",
-          "Suivi des immobilisations, stocks, fournisseurs, clients",
-          "Rattrapages comptables, lettrage et nettoyage des comptes",
-        ]}
-        reverse
-      />
+      {/* Missions Full Service */}
+      <section className="missions-section">
+        <h2>Quels sont les services et les missions d'un expert-comptable en full-service ?</h2>
+        
+        <p>Comme son nom l'indique, l'expert comptable full service propose à sa clientèle une expertise comptable à 360°, tout au long de la durée de vie des entreprises.</p>
+        <p>De manière générale, un expert-comptable tout-en-un peut offrir les services suivants :De manière générale, un expert-comptable tout-en-un peut offrir les services suivants :</p>
+        
+        <ul className="missions-list">
+          <li className="mission-item"><strong>Tenue des livres comptables</strong> : tenue à jour de la comptabilité, des registres financiers et des états financiers de l'entreprise, établissement des comptes annuels,</li>
+          <li className="mission-item"><strong>Préparation de déclarations fiscales</strong> : préparation et dépôt des déclarations fiscales et des déclarations de TVA des entreprises,</li>
+          <li className="mission-item"><strong>Planification fiscale</strong> : aide à la planification fiscale pour minimiser les impôts de l'entreprise,</li>
+          <li className="mission-item"><strong>Consultation financière</strong> : conseils en matière de gestion des finances, de trésorerie, de budget et d'investissement,</li>
+          <li className="mission-item"><strong>Gestion de paie et du personnel</strong> : gestion de la paie des employés, incluant le calcul des salaires et des cotisations sociales,</li>
+        </ul>
+      </section>
 
-      <ServiceBlock
-        title="Conseil Juridique"
-        image={imgJuridique}
-        description="Nous assurons une assistance juridique adaptée à chaque étape de la vie de votre entreprise."
-        items={[
-          "Montage juridique adapté à vos projets",
-          "Conformité réglementaire et suivi légal",
-          "Rédaction de statuts, pactes d'associés",
-          "Accompagnement lors des assemblées générales",
-          "Veille juridique continue pour anticiper les risques",
-        ]}
-      />
-
-      <ServiceBlock
-        title="Conseil Fiscal"
-        image={imgFiscal}
-        description="Notre cabinet vous aide à optimiser votre fiscalité et à sécuriser vos obligations."
-        items={[
-          "Optimisation de la charge fiscale de l’entreprise",
-          "Déclarations fiscales périodiques et annuelles",
-          "Conseils en fiscalité locale et internationale",
-          "Assistance lors de contrôles fiscaux",
-          "Analyse des régimes d’imposition les plus favorables",
-        ]}
-        reverse
-      />
-
-      <ServiceBlock
-        title="RH & Conseil Social"
-        image={imgRH}
-        description="Une gestion RH efficace pour assurer votre conformité sociale et optimiser vos ressources humaines."
-        items={[
-          "Gestion administrative du personnel",
-          "Contrats de travail, paie et déclarations sociales",
-          "Conseil en organisation RH",
-          "Assistance lors des conflits sociaux",
-          "Audit social et stratégie d’optimisation des charges",
-        ]}
-      />
-
-      <ServiceBlock
-        title="Création d’entreprise"
-        image={imgCreation}
-        description="Créer son entreprise nécessite un accompagnement sur mesure pour bien démarrer."
-        items={[
-          "Choix du statut juridique et fiscal",
-          "Rédaction des statuts et formalités d’immatriculation",
-          "Préparation des business plans",
-          "Ouverture des comptes et dépôt du capital",
-          "Conseils sur la structure de gouvernance",
-        ]}
-        reverse
-      />
-
-      <ServiceBlock
-        title="Formation"
-        image={imgFormation}
-        description="Nous proposons des formations ciblées pour monter en compétence rapidement sur des sujets clés."
-        items={[
-          "Formations comptables, fiscales, sociales",
-          "Modules sur le pilotage de la performance",
-          "Ateliers pratiques et cas concrets",
-          "Formations inter-entreprises ou personnalisées",
-          "Suivi post-formation et support opérationnel",
-        ]}
-      />
-
-      <ServiceBlock
-        title="Conseil en gestion"
-        image={imgGestion}
-        description="Un pilotage fin de votre activité pour améliorer vos performances et anticiper vos décisions."
-        items={[
-          "Mise en place de tableaux de bord et d’indicateurs",
-          "Analyse de la rentabilité et des marges",
-          "Suivi de trésorerie et budgets prévisionnels",
-          "Aide à la prise de décision stratégique",
-          "Contrôle budgétaire et ajustements opérationnels",
-        ]}
-        reverse
-      />
-
-      <ServiceBlock
-        title="Conseil Financier"
-        image={imgFinancier}
-        description="Des outils pour mieux financer votre croissance et structurer vos projets."
-        items={[
-          "Réalisation de plans de financement",
-          "Recherche de subventions et aides publiques",
-          "Levée de fonds et accompagnement bancaire",
-          "Analyse de rentabilité des projets d'investissement",
-          "Élaboration de reporting pour les financeurs",
-        ]}
-      />
-
-      <ServiceBlock
-        title="Accompagnement sur mesure"
-        image={imgAccompagnement}
-        description="Un accompagnement adapté à votre réalité d’entrepreneur, à chaque étape de votre parcours."
-        items={[
-          "Diagnostic personnalisé de l’entreprise",
-          "Déploiement de solutions concrètes et efficaces",
-          "Suivi régulier par un expert dédié",
-          "Conseils stratégiques sur le long terme",
-          "Accompagnement à la transformation digitale",
-        ]}
-        reverse
-      />
+      
     </div>
   );
 };
-
-const ServiceBlock = ({ title, image, description, items, reverse }) => (
-  <section className={`service-section ${reverse ? "reverse" : ""}`}>
-    <img src={image} alt={title} className="service-image" />
-    <div className="service-content">
-      <h2>{title}</h2>
-      {description && <p className="service-description">{description}</p>}
-      <ul>
-        {items.map((item, i) => <li key={i}>{item}</li>)}
-      </ul>
-    </div>
-  </section>
-);
 
 export default Services;

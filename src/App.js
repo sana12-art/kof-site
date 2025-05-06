@@ -18,10 +18,9 @@ import Aide from './Pages/Aide';
 import SmileYourPlanet from './Pages/SmileYourPlanet';
 import Webinar from './Pages/Webinar';
 import Presse from './Pages/Presse';
-import Post1 from './Pages/Post1';  // Page spécifique pour l'article 1
-import Post2 from './Pages/Post2';  // Page spécifique pour l'article 2
-import Post3 from './Pages/Post3';  // Page spécifique pour l'article 3
-
+import Post1 from './Pages/Post1';  
+import Post2 from './Pages/Post2';  
+import Post3 from './Pages/Post3';  
 
 
 
