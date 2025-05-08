@@ -246,7 +246,22 @@ const Home = () => {
             </div>
           </div>
         </section>
-        
+        <section class="hero-kof">
+          <div class="hero-container">
+            <h1 class="hero-titre">Accélérez votre croissance avec KOF-EXPERTS <br/>et concentrez-vous pleinement sur votre activité !</h1>
+            
+            <p class="hero-text">
+              Libérez-vous de vos tâches chronophages, gagnez en efficacité et en sérénité.Choisissez notre accompagnement personnalisé pour
+              optimiser vos processus 
+              administratifs et financiers, afin que vous puissiez vous concentrer sur ce qui 
+              compte vraiment : le développement de votre entreprise.
+            </p>
+            
+            <a href="tel:+33153103206" class="hero-cta">
+              Appeler un conseiller <span class="cta-arrow">→</span>
+            </a>
+          </div>
+        </section>
 
       </div>
     </div>

@@ -50,28 +50,27 @@
 }
 
 .services-columns {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+  gap: 20px;
+  padding: 20px 0;
 }
-.services-columns :hover{
-  color: #007bff;
-}
+
 .service-column {
   background-color: #f9f9f9;
   border-radius: 15px;
   padding: 20px;
-  flex: 1 1 calc(25% - 20px); /* 4 par ligne */
-  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 140px; /* ou ajustable selon le contenu */
+  min-height: 140px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  text-align: center;
 }
+
+
 .service-column:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(53, 122, 234, 0.2);
