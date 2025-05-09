@@ -21,7 +21,14 @@ import Presse from './Pages/Presse';
 import Post1 from './Pages/Post1';  
 import Post2 from './Pages/Post2';  
 import Post3 from './Pages/Post3';  
-
+import ComptaCard from "./Pages/ServicesDetails/ComptaCard";
+import FiscalCard from "./Pages/ServicesDetails/FiscalCard";
+import CreationCard from "./Pages/ServicesDetails/CreationEntrepriseCard";
+import BusinessPlanCard from "./Pages/ServicesDetails/BusinessPlanCard";
+import GestionCard from "./Pages/ServicesDetails/GestionCard";
+import JuridiqueCard from "./Pages/ServicesDetails/JuridiqueCard";
+import SocialCard from "./Pages/ServicesDetails/SocialCard";
+import FormationsCard from "./Pages/ServicesDetails/FormationCard";
 
 
 
@@ -50,6 +57,15 @@ function App() {
           <Route path="/services" element={<Services/>}></Route>
           <Route path="/contact" element={<Contact/>}></Route>
           <Route path="/apropos" element={<Apropos />} />
+          <Route path="/" element={<Services />} />
+          <Route path="/comptabilite" element={<ComptaCard />} />
+          <Route path="/conseil-fiscal" element={<FiscalCard />} />
+          <Route path="/creation-entreprise" element={<CreationCard />} />
+          <Route path="/business-plan" element={<BusinessPlanCard />} />
+          <Route path="/conseil-gestion" element={<GestionCard />} />
+          <Route path="/conseil-juridique" element={<JuridiqueCard />} />
+          <Route path="/prestation-sociale" element={<SocialCard />} />
+          <Route path="/formations" element={<FormationsCard />} />
         </Routes>
         <Footer/>
       </Router>
