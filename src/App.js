@@ -24,11 +24,12 @@ import Post3 from './Pages/Post3';
 import ComptaCard from "./Pages/ServicesDetails/ComptaCard";
 import FiscalCard from "./Pages/ServicesDetails/FiscalCard";
 import CreationCard from "./Pages/ServicesDetails/CreationEntrepriseCard";
-import BusinessPlanCard from "./Pages/ServicesDetails/BusinessPlanCard";
 import GestionCard from "./Pages/ServicesDetails/GestionCard";
 import JuridiqueCard from "./Pages/ServicesDetails/JuridiqueCard";
 import SocialCard from "./Pages/ServicesDetails/SocialCard";
 import FormationsCard from "./Pages/ServicesDetails/FormationCard";
+import Paie from "./Pages/ServicesDetails/Paie";
+
 
 
 
@@ -61,7 +62,7 @@ function App() {
           <Route path="/comptabilite" element={<ComptaCard />} />
           <Route path="/conseil-fiscal" element={<FiscalCard />} />
           <Route path="/creation-entreprise" element={<CreationCard />} />
-          <Route path="/business-plan" element={<BusinessPlanCard />} />
+          <Route path="/paie" element={<Paie />} />
           <Route path="/conseil-gestion" element={<GestionCard />} />
           <Route path="/conseil-juridique" element={<JuridiqueCard />} />
           <Route path="/prestation-sociale" element={<SocialCard />} />

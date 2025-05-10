@@ -18,7 +18,7 @@ const GestionCard = () => {
       </ul>
 
       <h2>Bénéfices</h2>
-      <p>En entreprises, les avantages tels que les primes et les commissions peuvent également augmenter leur rémunération globale. Un conseiller en gestion senior indépendant peut percevoir des honoraires représentant entre 0,5 et 3% du patrimoine (immobilier ou financier) de son client.</p>
+      <p>Ils aident les sociétés à identifier les opportunités de croissance, à optimiser leurs opérations internes et à renforcer leur position sur le marché.</p>
     </div>
   );
 };

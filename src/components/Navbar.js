@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.png';
-import DropdownMenu from '../Pages/DropdownMenu'; // Si tu veux un menu déroulant
+import OEC from '../assets/Logo-OEC.svg';
 
 const Navbar = () => {
     const [showResources, setShowResources] = useState(false); // State pour gérer l'affichage du sous-menu "Ressources"
@@ -35,18 +35,8 @@ const Navbar = () => {
                         <li><Link to="/" className="nav-link">Accueil</Link></li>
                         <li><Link to="/services" className="nav-link">Services</Link></li>
                         <li><Link to="/creation-entreprise" className="nav-link">Création d'entreprise</Link></li>
-                            
-                            {/* Dropdown Resources */}
-                        <li className="nav-item dropdown">
-                        <span className="nav-link dropdown-toggle">Ressources</span>
-                            <div className="dropdown-menu">
-                                <Link to="/blog" className="dropdown-item">Blog</Link>
-                                <Link to="/centre-aide" className="dropdown-item">Centre d’aide</Link>
-                                <Link to="/smile-your-planet" className="dropdown-item">Smile Your Planet</Link>
-                                <Link to="/webinar" className="dropdown-item">Webinar</Link>
-                                <Link to="/presse" className="dropdown-item">Presse</Link>
-                            </div>
-                        </li>
+                        <img src={OEC} alt="Logo Experts-Comptables" className="footer-oec-logo" />
+
                     </ul>
 
                 </div>

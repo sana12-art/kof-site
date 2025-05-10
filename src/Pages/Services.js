@@ -9,7 +9,7 @@ const Services = () => {
     "Comptabilité": "/comptabilite",
     "Création d'entreprise": "/creation-entreprise",
     "Conseil Fiscal": "/conseil-fiscal",
-    "Business Plan": "/business-plan",
+    "Paie": "/paie",
     "Conseil en gestion": "/conseil-gestion",
     "Conseil Juridique": "/conseil-juridique",
     "Préstation social": "/prestation-sociale",
