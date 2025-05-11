@@ -52,8 +52,23 @@
   .image-placeholder {
     flex: 1;
     height: 300px;
-    background-color: #ddd;
     margin: 0 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .kof-apropos {
+    width: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+    transform: rotate(-90deg);
+  }
+  .histoire-apropos{
+    width: 100%;
+    object-fit: cover;
     border-radius: 10px;
   }
   
@@ -124,5 +139,78 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+  @media (max-width: 768px) {
+    .kof-apropos {
+      transform: rotate(-90deg);
+    }
+    .apropos-container {
+      padding: 30px 15px;
+    }
+  
+    .main-title {
+      font-size: 32px;
+    }
+  
+    .sub-title {
+      font-size: 18px;
+    }
+  
+    .text-image-section {
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+  
+    .text-image-section.reverse {
+      flex-direction: column;
+    }
+  
+    .text-content {
+      padding: 10px 0;
+      text-align: center;
+    }
+  
+    .text-content h3 {
+      font-size: 22px;
+    }
+  
+    .text-content p {
+      font-size: 16px;
+    }
+  
+    .image-placeholder {
+      width: 100%;
+      height: 200px;
+      margin: 20px 0;
+    }
+  
+    .kof-apropos {
+      width: 80%;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    
+  
+    .highlight-title {
+      font-size: 24px;
+    }
+  
+    .highlight-text {
+      font-size: 16px;
+    }
+  
+    .cta-title {
+      font-size: 28px;
+    }
+  
+    .cta-subtext {
+      font-size: 16px;
+    }
+  
+    .cta-button {
+      padding: 12px 25px;
+      font-size: 16px;
+    }
   }
   

@@ -13,7 +13,6 @@ import Logout from './Pages/Logout';
 import Register from './Pages/Register';
 import DropdownMenu from './Pages/DropdownMenu'; 
 import CreateEntrepriseForm from './Pages/CreateEntrepriseForm';
-import Blog from './Pages/Blog';
 import Aide from './Pages/Aide';
 import SmileYourPlanet from './Pages/SmileYourPlanet';
 import Webinar from './Pages/Webinar';
@@ -39,7 +38,6 @@ function App() {
       <Router>
         <Navbar/>
           <Routes>
-          <Route path="/blog" element={<Blog />} />
           <Route path="/blog/post1" component={Post1} />
           <Route path="/blog/post2" component={Post2} />
           <Route path="/blog/post3" component={Post3} />
