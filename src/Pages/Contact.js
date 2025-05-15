@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import './Contact.css';
 
@@ -54,4 +55,9 @@ const Contact = () => {
     );
 };
 
+=======
+const Contact = () => {
+    return <div></div>;
+};
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 export default Contact;

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.png';
+<<<<<<< HEAD
+=======
+import OEC from '../assets/Logo-OEC.svg';
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 
 const Navbar = () => {
     const [showResources, setShowResources] = useState(false); // State pour gérer l'affichage du sous-menu "Ressources"
@@ -34,7 +38,11 @@ const Navbar = () => {
                         <li><Link to="/" className="nav-link">Accueil</Link></li>
                         <li><Link to="/services" className="nav-link">Services</Link></li>
                         <li><Link to="/creation-entreprise" className="nav-link">Création d'entreprise</Link></li>
+<<<<<<< HEAD
                         <li><Link to="/ressources" className="nav-link">Ressources</Link></li>
+=======
+                        <img src={OEC} alt="Logo Experts-Comptables" className="footer-oec-logo" />
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 
                     </ul>
 

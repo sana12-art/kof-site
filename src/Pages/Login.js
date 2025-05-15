@@ -8,6 +8,7 @@ function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+<<<<<<< HEAD
  const handleLogin = async (e) => {
   e.preventDefault();
 
@@ -33,6 +34,18 @@ function Login() {
     alert('Erreur serveur lors de la connexion');
   }
 };
+=======
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (email === "test@test.com" && password === "password") {
+      localStorage.setItem('isLoggedIn', 'true');
+      navigate('/'); // Redirige vers la page d'accueil
+    } else {
+      alert('Identifiants incorrects');
+    }
+  };
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 
   const handleRegister = () => {
     navigate('/register'); // Redirige vers la page d'inscription
@@ -59,6 +72,10 @@ function Login() {
         />
         <button type="submit">Se connecter</button>
       </form>
+<<<<<<< HEAD
+=======
+      <p className="register-link" onClick={handleRegister}>Pas encore de compte ? S'inscrire ici</p>
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
     </div>
   );
 }

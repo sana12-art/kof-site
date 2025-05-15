@@ -17,6 +17,7 @@ import PhoneInput from 'react-phone-input-2';
 
 const Home = () => {
   const navigate = useNavigate();
+<<<<<<< HEAD
   const [nom, setNom] = React.useState('');
   const [phone, setPhone] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -66,6 +67,8 @@ const Home = () => {
       setSuccessMessage('');
     }
 };
+=======
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
   return (
     <div className="main-content">
       <div className="hero-section">
@@ -94,8 +97,12 @@ const Home = () => {
           >
             KOF-EXPERTS vous accompagne dans toutes les étapes de la vie de votre entreprise : création, gestion, conseil fiscal et juridique, ressources humaines, formations et plus encore. Notre équipe d'experts est à vos côtés pour transformer vos idées en réalité.
           </motion.p>
+<<<<<<< HEAD
           {successMessage && <p className="success-message">{successMessage}</p>}
           {errorMessage && <p className="error-message">{errorMessage}</p>}
+=======
+
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
           <motion.button
             className="cta-button"
             onClick={() => navigate('/consultation')}
@@ -116,6 +123,7 @@ const Home = () => {
           <div className="compact-devis-container">
             <h3 className="compact-form-title">Obtenir un devis gratuit
             et sans engagement</h3>
+<<<<<<< HEAD
             {successMessage && (
               <div className="success-message">
                 Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
@@ -162,6 +170,10 @@ const Home = () => {
                   }
               }}
             >
+=======
+            
+            <form className="compact-devis-form">
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
               <input type="text" placeholder="Nom" required />
 
               <PhoneInput
@@ -340,6 +352,7 @@ const Home = () => {
             </div>
           </div>
         </section>
+<<<<<<< HEAD
         <motion.div
           className="hero-right"
           initial={{ opacity: 0, x: 50 }}
@@ -456,6 +469,8 @@ const Home = () => {
     
   
 </motion.div>
+=======
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
         <section class="hero-kof">
           <div class="hero-container">
             <h1 class="hero-titre">Accélérez votre croissance avec KOF-EXPERTS <br/>et concentrez-vous pleinement sur votre activité !</h1>

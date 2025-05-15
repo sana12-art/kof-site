@@ -173,6 +173,7 @@
   margin: 0 auto;
   padding: 20px;
 }
+<<<<<<< HEAD
 /* CSS OPTIMISÉ POUR HERO-LEFT */
 
 .hero-left {
@@ -294,6 +295,9 @@
   from { opacity: 0; transform: translateX(1rem); }
   to { opacity: 1; transform: translateX(0); }
 }
+=======
+
+>>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 
 
 /* Responsive */
