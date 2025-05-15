@@ -10,7 +10,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-<<<<<<< HEAD
     min-height: 90vh;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -19,7 +18,6 @@ body {
   }
   
   .login-container h2 {
-=======
     min-height: 100vh;
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -28,7 +26,6 @@ body {
   }
   
   h2 {
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
     color: #333;
     margin-bottom: 30px;
     font-size: 28px; /* Augmenter la taille du titre */
@@ -45,11 +42,8 @@ body {
     margin: 15px 0; /* Plus d'espace entre les champs */
     border: 1px solid #ccc;
     border-radius: 6px; /* Coins plus arrondis */
-<<<<<<< HEAD
     font-size: 15px; /* Augmenter la taille de la police */
-=======
     font-size: 18px; /* Augmenter la taille de la police */
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
     outline: none;
   }
   
@@ -64,11 +58,8 @@ body {
     color: white;
     border: none;
     border-radius: 6px; /* Coins plus arrondis */
-<<<<<<< HEAD
     font-size: 15px; /* Augmenter la taille de la police */
-=======
     font-size: 18px; /* Augmenter la taille de la police */
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
     cursor: pointer;
     transition: background-color 0.3s;
   }
@@ -91,11 +82,8 @@ body {
   }
   
 .logo {
-<<<<<<< HEAD
     width: 180px; /* Ajuste la taille du logo */
-=======
     width: 190px; /* Ajuste la taille du logo */
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
     height: auto;
     margin-bottom: 0px; /* Ajoute de l'espace sous le logo */
   }

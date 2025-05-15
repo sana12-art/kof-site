@@ -11,12 +11,9 @@ function Apropos() {
     <div className="apropos-container">
 
       <section className="intro-section">
-<<<<<<< HEAD
         <h1 className="main-title">KOF-EXPERTS, Votre Guide vers l'Excellence Entrepreneuriale</h1>
-=======
         <h1 className="main-title">À propos de KOF-EXPERTS Management Dynamique</h1>
         <h2 className="sub-title">KOF-EXPERTS, Votre Guide vers l'Excellence Entrepreneuriale</h2>
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
       </section>
 
       <section className="text-image-section">

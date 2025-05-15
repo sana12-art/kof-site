@@ -1,10 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import { motion } from 'framer-motion'; 
 import PhoneInput from 'react-phone-input-2';
-=======
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 import './Services.css';
 
 const Services = () => {
@@ -46,7 +43,6 @@ const Services = () => {
       <section className="missions-section"></section>
       <section className="guide-services"></section>
       <section className="critere-services"></section>
-<<<<<<< HEAD
       <motion.div
           className="hero-right"
           initial={{ opacity: 0, x: 50 }}
@@ -116,8 +112,6 @@ const Services = () => {
             </form>
           </div>
         </motion.div>
-=======
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
       <section class="hero-kof">
           <div class="hero-container">
             <h1 class="hero-titre">Accélérez votre croissance avec KOF-EXPERTS <br/>et concentrez-vous pleinement sur votre activité !</h1>
