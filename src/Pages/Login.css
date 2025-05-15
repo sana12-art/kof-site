@@ -1,0 +1,95 @@
+/* Login.css */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1px;
+
+  }
+  
+  .login-container h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px; /* Augmenter la taille du titre */
+  }
+  
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    width: 350px; /* Augmenter la largeur du formulaire */
+  }
+  
+  .login-container input {
+    padding: 16px; /* Augmenter la taille du padding */
+    margin: 15px 0; /* Plus d'espace entre les champs */
+    border: 1px solid #ccc;
+    border-radius: 6px; /* Coins plus arrondis */
+    font-size: 15px; /* Augmenter la taille de la police */
+    outline: none;
+  }
+  
+  .login-container input:focus {
+    border-color: #007bff;
+  }
+  
+  .login-container button {
+    padding: 16px; /* Augmenter le padding pour le bouton */
+    margin: 15px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px; /* Coins plus arrondis */
+    font-size: 15px; /* Augmenter la taille de la police */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-container button:hover {
+    background-color: #0056b3;
+  }
+  
+    /* Style pour le texte cliquable "S'inscrire ici" */
+    .register-link {
+        margin-top: 15px;
+        color: #007bff;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+    }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
+.logo {
+    width: 180px; /* Ajuste la taille du logo */
+    height: auto;
+    margin-bottom: 0px; /* Ajoute de l'espace sous le logo */
+  }
+  
+  
+  /* Add responsiveness for smaller screens */
+  @media (max-width: 500px) {
+    .login-container {
+      width: 90%;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    .login-container input, .login-container button {
+      font-size: 16px; /* Ajuster la taille des champs sur mobile */
+    }
+  }
+  

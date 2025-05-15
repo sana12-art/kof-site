@@ -1,0 +1,362 @@
+/* services.css */
+
+/* Styles généraux */
+.services-page {
+  font-family: 'Roboto', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Titres */
+.main-title {
+  font-size: 2.1rem !important;
+  text-align: center;
+  margin-left: 100px !important;
+  color: #2c3e50;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+/* Section Cartes de Services */
+.services-cards-container {
+  margin-bottom: 4rem;
+}
+
+.service-category-section {
+  margin-bottom: 2rem;
+}
+
+.service-category-title {
+  color: #2e93ff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e1f0ff;
+}
+
+.services-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+
+.services-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.service-column {
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+
+.service-column:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(53, 122, 234, 0.2);
+  color: #2e93ff;
+}
+.service-column h2{
+  font-size: 23px;
+  margin-left:40px;
+}
+.learn-more {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 24px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+  color: #0056b3;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .service-column {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Sections de texte */
+.full-service-section, .missions-section {
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.full-service-section h2, .missions-section h2, .guide-services h2, .critere-services h2 {
+  color: #2e93ff;
+  font-size: 1.8rem;
+  margin: 2rem 0 1.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.full-service-section h2:before, .missions-section h2:before, .guide-services h2:before, .critere-services h2:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 4px;
+  background: #2e93ff;
+  border-radius: 2px;
+}
+
+.missions-list, .critere-list {
+  list-style: none;
+  padding: 0;
+}
+
+.mission-item, .critere-item {
+  margin-bottom: 1.2rem;
+  padding-left: 1.8rem;
+  position: relative;
+}
+
+.mission-item:before, .critere-item:before{
+  content: "→";
+  color: #2e93ff;
+  position: absolute;
+  left: 0;
+}
+
+/* Section Devis */
+.devis-section {
+  background: #f8f9fa;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  margin-top: 3rem;
+}
+
+.devis-section h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.devis-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group input, 
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.submit-btn {
+  background: #2e93ff;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: block;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 300px;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: #1a7ae6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.required-fields {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.contact-info {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.phone {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.contact-text {
+  color: #2e93ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.callback-section {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.callback-section h3 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.offer {
+  color: #2e93ff;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    height: auto;
+  }
+  
+  .devis-section {
+    padding: 2rem 1rem;
+  }
+  
+  .service-category-title {
+    font-size: 1.5rem;
+  }
+}
+.service-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.service-modal {
+  background: #fff;
+  width: 90%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  color: #777;
+}
+
+.modal-content p {
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.modal-features {
+  display: flex;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.feature h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.feature ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.cta-button {
+  background-color: #1e88e5;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
