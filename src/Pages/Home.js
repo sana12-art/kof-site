@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  {useState } from 'react';
 import './Home.css';
 import { motion } from 'framer-motion';
 import creation from '../assets/creation.png';
@@ -23,6 +23,7 @@ const Home = () => {
   const [chiffreAffaires, setChiffreAffaires] = React.useState('');
   const [successMessage, setSuccessMessage] = React.useState('');
   const [errorMessage, setErrorMessage] = React.useState('');
+
   const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -43,29 +44,24 @@ const Home = () => {
     });
 
     if (response.ok) {
-     if (response.ok) {
-      {successMessage && (
-        <div className="success-message">
-          Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
-        </div>
-      )}      setTimeout(() => setSuccessMessage(''), 5000); // Disparaît après 5 sec
-      e.target.reset(); // reset le formulaire
-    }
-      // Réinitialiser le formulaire
+      setSuccessMessage('Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.');
+      setErrorMessage('');
       setNom('');
       setPhone('');
       setEmail('');
       setChiffreAffaires('');
+      setTimeout(() => setSuccessMessage(''), 5000);
     } else {
-        setErrorMessage('Une erreur est survenue lors de l’envoi. Veuillez réessayer.');
-        setSuccessMessage('');
-      }
-    } catch (error) {
-      console.error('Erreur:', error);
-      setErrorMessage('Erreur réseau. Veuillez vérifier votre connexion.');
+      setErrorMessage('Une erreur est survenue lors de l’envoi. Veuillez réessayer.');
       setSuccessMessage('');
     }
+  } catch (error) {
+    console.error('Erreur:', error);
+    setErrorMessage('Erreur réseau. Veuillez vérifier votre connexion.');
+    setSuccessMessage('');
+  }
 };
+ 
   return (
     <div className="main-content">
       <div className="hero-section">
@@ -95,10 +91,6 @@ const Home = () => {
             KOF-EXPERTS vous accompagne dans toutes les étapes de la vie de votre entreprise : création, gestion, conseil fiscal et juridique, ressources humaines, formations et plus encore. Notre équipe d'experts est à vos côtés pour transformer vos idées en réalité.
           </motion.p>
 
-          {successMessage && <p className="success-message">{successMessage}</p>}
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-
           <motion.button
             className="cta-button"
             onClick={() => navigate('/consultation')}
@@ -119,56 +111,24 @@ const Home = () => {
           <div className="compact-devis-container">
             <h3 className="compact-form-title">Obtenir un devis gratuit
             et sans engagement</h3>
-            {successMessage && (
+            {successMessage && 
               <div className="success-message">
                 Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
               </div>
-            )}
-            {errorMessage && (
+            }
+            {errorMessage && 
               <div className="error-message">
                 {errorMessage}
               </div>
-            )}  
-            <form
-              className="compact-devis-form"
-              onSubmit={async (e) => {
-                e.preventDefault();
-
-                const nom = e.target[0].value;
-                const phone = e.target[1].value;
-                const email = e.target[2].value;
-                const chiffreAffaires = e.target[3].value;
-
-                try {
-                  const response = await fetch('http://localhost:5000/api/devis', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ nom, phone, email, chiffreAffaires })
-                  });
-
-                  if (response.ok) {
-                   if (response.ok) {
-                      setSuccessMessage('Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.');
-                      e.target.reset(); // Vider le formulaire
-                      setTimeout(() => setSuccessMessage(''), 5000); // Masquer après 5 sec
-                    }
-                  } else {
-                      setErrorMessage('Une erreur est survenue lors de l’envoi. Veuillez réessayer.');
-                      setSuccessMessage('');
-                    }
-                  } catch (error) {
-                    console.error('Erreur:', error);
-                    setErrorMessage('Erreur réseau. Veuillez vérifier votre connexion.');
-                    setSuccessMessage('');
-                  }
-              }}
-            ></form>
-
-            
-            <form className="compact-devis-form">
-              <input type="text" placeholder="Nom" required />
+            }  
+            <form className="compact-devis-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Nom"
+                value={nom}
+                onChange={(e) => setNom(e.target.value)}
+                required
+              />
 
               <PhoneInput
                 country={'fr'}
@@ -178,13 +138,27 @@ const Home = () => {
                 inputProps={{
                   name: 'phone',
                   required: true,
-                  autoFocus: false
+                  autoFocus: false,
                 }}
+                value={phone}
+                onChange={setPhone}
                 placeholder="Numéro de téléphone"
               />
 
-              <input type="email" placeholder="Adresse email" required />
-              <input type="text" placeholder="Votre chiffre d'affaires annuel HT (€)" />
+              <input
+                type="email"
+                placeholder="Adresse email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <input
+                type="text"
+                placeholder="Votre chiffre d'affaires annuel HT (€)"
+                value={chiffreAffaires}
+                onChange={(e) => setChiffreAffaires(e.target.value)}
+              />
 
               <button type="submit" className="compact-submit-btn">
                 Demandez votre devis
@@ -194,6 +168,8 @@ const Home = () => {
                 En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
               </p>
             </form>
+            
+           
           </div>
         </motion.div>
     
@@ -355,78 +331,64 @@ const Home = () => {
           <div className="compact-devis-container">
             <h3 className="compact-form-title">Obtenir un devis gratuit
             et sans engagement</h3>
-           {successMessage && (
+         
+            {successMessage && 
               <div className="success-message">
                 Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
               </div>
-            )}
-            {errorMessage && (
-              <div className="error-message">
-                {errorMessage}
-              </div>
-            )}  
-            <form
-              className="compact-devis-form"
-              onSubmit={async (e) => {
-                e.preventDefault();
+            }       
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            
+            <form className="compact-devis-form"onSubmit={handleSubmit} >
+            <input
+              type="text"
+              placeholder="Nom"
+              value={nom}
+              onChange={(e) => setNom(e.target.value)}
+              required
+            />
 
-                const nom = e.target[0].value;
-                const phone = e.target[1].value;
-                const email = e.target[2].value;
-                const chiffreAffaires = e.target[3].value;
-
-                try {
-                  const response = await fetch('http://localhost:5000/api/devis', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ nom, phone, email, chiffreAffaires })
-                  });
-
-                  if (response.ok) {
-                  if (response.ok) {
-                    setSuccessMessage('Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.');
-                    e.target.reset(); // Vider le formulaire
-                    setTimeout(() => setSuccessMessage(''), 5000); // Masquer après 5 sec
-                  }
-                  } else {
-                    alert('Une erreur est survenue.');
-                  }
-                } catch (error) {
-                  console.error('Erreur lors de l\'envoi du formulaire :', error);
-                  alert('Erreur réseau.');
-                }
+            <PhoneInput
+              country={'fr'}
+              enableSearch={true}
+              preferredCountries={['fr', 'ma', 'us', 'gb']}
+              inputClass="form-input"
+              inputProps={{
+                name: 'phone',
+                required: true,
+                autoFocus: false,
               }}
-            >
-              <input type="text" placeholder="Nom" required />
+              value={phone}
+              onChange={setPhone}
+              placeholder="Numéro de téléphone"
+            />
 
-              <PhoneInput
-                country={'fr'}
-                enableSearch={true}
-                preferredCountries={['fr', 'ma', 'us', 'gb']}
-                inputClass="form-input"
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                  autoFocus: false
-                }}
-                placeholder="Numéro de téléphone"
-              />
+            <input
+              type="email"
+              placeholder="Adresse email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-              <input type="email" placeholder="Adresse email" required />
-              <input type="text" placeholder="Votre chiffre d'affaires annuel HT (€)" />
+            <input
+              type="text"
+              placeholder="Votre chiffre d'affaires annuel HT (€)"
+              value={chiffreAffaires}
+              onChange={(e) => setChiffreAffaires(e.target.value)}
+            />
 
-              <button type="submit" className="compact-submit-btn">
-                Demandez votre devis
-              </button>
+            <button type="submit" className="compact-submit-btn">
+              Demandez votre devis
+            </button>
 
-              <p className="compact-legal">
-                En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
-              </p>
-            </form>
+            <p className="compact-legal">
+              En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
+            </p>
+          </form>
           </div>
         </motion.div>
+
         <motion.div
         className="hero-left bg-white p-6 rounded-lg shadow-md"
         initial={{ opacity: 0, x: 50 }}
@@ -462,19 +424,19 @@ const Home = () => {
     
   
       </motion.div>
-        <section class="hero-kof">
-          <div class="hero-container">
-            <h1 class="hero-titre">Accélérez votre croissance avec KOF-EXPERTS <br/>et concentrez-vous pleinement sur votre activité !</h1>
+        <section className="hero-kof">
+          <div className="hero-container">
+            <h1 className="hero-titre">Accélérez votre croissance avec KOF-EXPERTS <br/>et concentrez-vous pleinement sur votre activité !</h1>
             
-            <p class="hero-text">
+            <p className="hero-text">
               Libérez-vous de vos tâches chronophages, gagnez en efficacité et en sérénité.Choisissez notre accompagnement personnalisé pour
               optimiser vos processus 
               administratifs et financiers, afin que vous puissiez vous concentrer sur ce qui 
               compte vraiment : le développement de votre entreprise.
             </p>
             
-            <a href="tel:+33153103206" class="hero-cta">
-              Appeler un conseiller <span class="cta-arrow">→</span>
+            <a href="tel:+33153103206" className="hero-cta">
+              Appeler un conseiller <span className="cta-arrow">→</span>
             </a>
           </div>
         </section>

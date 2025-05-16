@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.png';
-import OEC from '../assets/Logo-OEC.svg';
 
 const Navbar = () => {
     const [showResources, setShowResources] = useState(false);
@@ -42,18 +41,11 @@ const Navbar = () => {
                             >
                                 Ressources
                             </Link>
-                            {showResources && (
-                                <ul className="resources-submenu">
-                                    <li><Link to="/ressources/guides">Guides</Link></li>
-                                    <li><Link to="/ressources/outils">Outils</Link></li>
-                                </ul>
-                            )}
+                            
                         </li>
                      
                     </ul>
-                </div>
-
-                {/* Section contact */}
+                      {/* Section contact */}
                 <div className="navbar-right">
                     <a href="tel:0153103206" className="phone-button">01 53 10 32 06</a>
                     <Link to="/contact" className="contact-button">Nous contacter</Link>
@@ -61,6 +53,9 @@ const Navbar = () => {
                         <i className="fas fa-user"></i>
                     </Link>
                 </div>
+                </div>
+
+              
             </div>
         </nav>
     );

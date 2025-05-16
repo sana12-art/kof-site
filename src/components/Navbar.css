@@ -55,11 +55,10 @@
 
 /* Section droite (Téléphone, contact et login) */
 .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
-
 /* Style du bouton téléphone */
 .phone-button {
     background-color: #0077cc;
@@ -214,19 +213,23 @@
       width: 100%;
     }
   
-    .navbar-right {
-      display: none; /* Cache les éléments de droite dans le header */
-    }
-  
-    /* Affiche les éléments de contact dans le menu déroulant */
-    .navbar-links.mobile-menu .navbar-right {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 15px;
-      border-top: 1px solid #eee;
-      padding-top: 15px;
-    }
+ /* En version mobile, on n'affiche plus display:none */
+@media (max-width: 768px) {
+  /* Supprime cette ligne :
+  .navbar-right {
+    display: none;
+  }
+  */
+
+  .navbar-links.mobile-menu .navbar-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
+}
   
     .logo-img {
       width: 100px;
@@ -254,3 +257,57 @@
       color: #2c3e50;
     }
   }
+  @media (max-width: 600px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .navbar-container {
+    padding: 0;
+    height: auto;
+  }
+
+  .logo-img {
+    width: 90px;
+  }
+
+  .menu-icon {
+    font-size: 1.6rem;
+  }
+
+  .navbar-links.mobile-menu {
+    padding: 10px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    padding: 8px 10px;
+    text-align: left;
+  }
+
+  .phone-button,
+  .contact-button {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links.mobile-menu .navbar-right {
+    gap: 10px;
+  }
+
+  .dropdown-item {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .promo-text {
+    font-size: 13px;
+    margin: 8px 0;
+  }
+
+  .contact-info {
+    font-size: 13px;
+  }
+}

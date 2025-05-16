@@ -48,4 +48,35 @@
     background-color: #0088cc;
     transform: scale(1.05);
   }
-  
+  @media (max-width: 768px) {
+  .jemelance-container {
+    padding: 40px 15px;
+    min-height: auto;
+  }
+
+  .jemelance-container h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .jemelance-container p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .contact-form {
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .contact-form button {
+    font-size: 16px;
+    padding: 12px;
+  }
+}

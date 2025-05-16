@@ -13,8 +13,10 @@ const Consultation = () => {
     questions: '',
     acceptData: false,
   });
+
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -27,58 +29,61 @@ const Consultation = () => {
     e.preventDefault();
 
     if (!formData.acceptData) {
-      alert("Veuillez accepter la collecte des données.");
+      setErrorMessage("Veuillez accepter la collecte des données.");
+      setSuccessMessage('');
       return;
     }
 
-   try {
-  const response = await fetch('http://localhost:5000/api/consultation', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData),
-  });
+    try {
+      const response = await fetch('http://localhost:5000/api/consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-  const result = await response.json();
+      const result = await response.json();
 
-  if (response.ok) {
-setSuccessMessage("Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.");    e.target.reset(); // Vider le formulaire
-    setTimeout(() => setSuccessMessage(''), 5000); // Masquer après 5 sec
-
-    setErrorMessage('');
-    setFormData({
-      service: '',
-      nom: '',
-      email: '',
-      phone: '',
-      dateHeure: '',
-      questions: '',
-      acceptData: false,
-    });
-  } else {
-    setErrorMessage(result.message || "Erreur lors de l’envoi.");
-    setSuccessMessage('');
-  }
-} catch (error) {
-  console.error('Erreur lors de l’envoi :', error);
-  setErrorMessage("Erreur lors de l’envoi du formulaire.");
-  setSuccessMessage('');
-}
+      if (response.ok) {
+        setSuccessMessage("Consultation reçue et email envoyé avec succès !");
+        setErrorMessage('');
+        // Réinitialiser le formulaire
+        setFormData({
+          service: '',
+          nom: '',
+          email: '',
+          phone: '',
+          dateHeure: '',
+          questions: '',
+          acceptData: false,
+        });
+        setTimeout(() => setSuccessMessage(''), 5000); // message disparaît après 5 sec
+      } else {
+        setErrorMessage(result.message || "Erreur lors de l’envoi.");
+        setSuccessMessage('');
+      }
+    } catch (error) {
+      console.error('Erreur lors de l’envoi :', error);
+      setErrorMessage("Erreur lors de l’envoi du formulaire.");
+      setSuccessMessage('');
+    }
   };
 
   return (
     <div className="consultation-container">
       <div className="consultation-columns">
         <div className="consultation-text">
-          <h1>Vous avez un projet ? <br/>Contactez-nous pour  <br/>planifier votre <br/> première  <br/>consultation <br/> gratuite !</h1>
+          <h1>Vous avez un projet ? <br/>Contactez-nous pour <br/>planifier votre <br/> première <br/>consultation <br/> gratuite !</h1>
           <p>
             Nous sommes heureux de vous offrir une consultation <br/> initiale gratuite...
           </p>
         </div>
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
         <form className="consultation-form" onSubmit={handleSubmit}>
+          {successMessage && <p className="success-message">{successMessage}</p>}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+
           <label>Service souhaité :</label>
-          <select name="service" onChange={handleChange} required>
+          <select name="service" value={formData.service} onChange={handleChange} required>
             <option value="">-- Choisissez un service --</option>
             <option>Comptabilité</option>
             <option>Conseil en gestion</option>
@@ -92,22 +97,22 @@ setSuccessMessage("Merci ! Votre demande a bien été envoyée. Un conseiller vo
           </select>
 
           <label>Nom :</label>
-          <input type="text" name="nom" placeholder="Nom" onChange={handleChange} required />
+          <input type="text" name="nom" value={formData.nom} placeholder="Nom" onChange={handleChange} required />
 
           <label>Email :</label>
-          <input type="email" name="email" placeholder="Adresse e-mail" onChange={handleChange} required />
+          <input type="email" name="email" value={formData.email} placeholder="Adresse e-mail" onChange={handleChange} required />
 
           <label>Téléphone :</label>
-          <input type="tel" name="phone" placeholder="Numéro de téléphone" onChange={handleChange} required />
+          <input type="tel" name="phone" value={formData.phone} placeholder="Numéro de téléphone" onChange={handleChange} required />
 
           <label>Date et heure préférées :</label>
-          <input type="datetime-local" name="dateHeure" onChange={handleChange} />
+          <input type="datetime-local" name="dateHeure" value={formData.dateHeure} onChange={handleChange} />
 
           <label>Questions spécifiques :</label>
-          <textarea name="questions" rows="4" placeholder="Vos questions..." onChange={handleChange}></textarea>
+          <textarea name="questions" value={formData.questions} rows="4" placeholder="Vos questions..." onChange={handleChange}></textarea>
 
           <div className="checkbox-container">
-            <input className='box' type="checkbox" name="acceptData" onChange={handleChange} />
+            <input className="box" type="checkbox" name="acceptData" checked={formData.acceptData} onChange={handleChange} />
             <label htmlFor="acceptData">J'accepte que mes données soient collectées.</label>
           </div>
 

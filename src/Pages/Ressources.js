@@ -1,42 +1,49 @@
-// src/Pages/Ressources.js
 import React from 'react';
-import './Ressources.css'; // On créera ce fichier après
+import './Ressources.css';
+
+const ressourcesData = [
+  {
+    id: 1,
+    title: "Guide pour créer votre entreprise",
+    description: "Un guide complet pour vous accompagner dans les étapes de création.",
+    link: "/pdfs/creation entreprise.pdf"
+  },
+  {
+    id: 2,
+    title: "Modèle de business plan",
+    description: "Téléchargez un modèle de business plan professionnel à remplir.",
+    link: "/modeles/Business Plan.docx"
+  },
+  {
+    id: 3,
+    title: "FAQ sur la comptabilité",
+    description: "Réponses aux questions les plus courantes sur la gestion comptable.",
+    link: "/FAQ.docx"
+  }
+];
 
 const Ressources = () => {
   return (
     <div className="ressources-container">
-      <h1>Ressources Utiles</h1>
-      <section>
-        <h2>Guides pratiques</h2>
-        <ul>
-          <li>Créer une entreprise en France</li>
-          <li>Choisir un statut juridique</li>
-        </ul>
-      </section>
+      <h1>Ressources utiles pour votre entreprise</h1>
+      <p>Découvrez nos guides, modèles et conseils pour mieux gérer votre projet.</p>
 
-      <section>
-        <h2>Outils gratuits</h2>
-        <ul>
-          <li>Simulateur de charges</li>
-          <li>Générateur de devis/facture</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Articles & Conseils</h2>
-        <ul>
-          <li>5 erreurs à éviter en gestion comptable</li>
-          <li>Comment optimiser sa fiscalité ?</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Modèles à télécharger</h2>
-        <ul>
-          <li><a href="#">Modèle de business plan</a></li>
-          <li><a href="#">Modèle de contrat de prestation</a></li>
-        </ul>
-      </section>
+      <ul className="ressources-list">
+        {ressourcesData.map(resource => (
+          <li key={resource.id} className="resource-item">
+            <h3>{resource.title}</h3>
+            <p>{resource.description}</p>
+          <a href={resource.link}
+            className="download-link"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Télécharger / Voir
+          </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

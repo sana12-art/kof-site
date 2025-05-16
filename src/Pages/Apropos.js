@@ -12,8 +12,7 @@ function Apropos() {
 
       <section className="intro-section">
         <h1 className="main-title">KOF-EXPERTS, Votre Guide vers l'Excellence Entrepreneuriale</h1>
-        <h1 className="main-title">À propos de KOF-EXPERTS Management Dynamique</h1>
-        <h2 className="sub-title">KOF-EXPERTS, Votre Guide vers l'Excellence Entrepreneuriale</h2>
+        
       </section>
 
       <section className="text-image-section">
@@ -25,9 +24,7 @@ function Apropos() {
             C’est cette approche holistique qui propulse les entreprises vers de nouveaux sommets d’efficacité, de compétitivité et de réussite durable.
           </p>
         </div>
-        <div className="image-placeholder">
-        <img src={kof} alt="KOF" className="kof-apropos" />
-        </div>
+        
       </section>
 
       <section className="highlight-section">

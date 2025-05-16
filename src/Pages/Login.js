@@ -63,7 +63,6 @@ function Login() {
         <button type="submit">Se connecter</button>
       </form>
 
-      <p className="register-link" onClick={handleRegister}>Pas encore de compte ? S'inscrire ici</p>
     </div>
   );
 }

@@ -173,7 +173,6 @@
   margin: 0 auto;
   padding: 20px;
 }
-<<<<<<< HEAD
 /* CSS OPTIMISÉ POUR HERO-LEFT */
 
 .hero-left {
@@ -295,9 +294,6 @@
   from { opacity: 0; transform: translateX(1rem); }
   to { opacity: 1; transform: translateX(0); }
 }
-=======
-
->>>>>>> 6180aa15309943c8f93d3b7a776b88cf56582ef9
 
 
 /* Responsive */
@@ -856,5 +852,100 @@
   .hero-cta {
     padding: 12px 25px;
     font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .hero-right {
+    padding: 20px;
+    margin: 10px 15px;
+    box-shadow: none;
+    border-radius: 8px;
+  }
+
+  .devis-form {
+    width: 100%;
+    padding: 15px;
+    box-shadow: none;
+    border-radius: 8px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .devis-form .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .devis-form .form-row input,
+  .devis-form .single-line-input,
+  .devis-form .phone-input-container input {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .form-heading {
+    font-size: 20px;
+  }
+
+  .form-disclaimer {
+    font-size: 12px;
+  }
+
+  .form-button {
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 6px;
+  }
+
+  .form-secure {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-kof {
+    padding: 40px 15px;
+    border-radius: 30px;
+    text-align: center;
+  }
+
+  .hero-kof::before,
+  .hero-kof::after {
+    display: none; /* On supprime les effets de fond pour alléger sur mobile */
+  }
+
+  .hero-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .hero-titre {
+    font-size: 1.8rem !important;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    max-width: 100%;
+  }
+
+  .hero-cta {
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 40px;
+  }
+
+  .cta-arrow {
+    margin-left: 8px;
   }
 }

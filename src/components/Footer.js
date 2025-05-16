@@ -32,7 +32,7 @@ const Footer = () => {
             
         <div className="footer-contact">
             <h4>Contactez KOF</h4>
-            <p>contact@kof.com</p>
+            <p>contact@kof-experts.com</p>
         </div>
         
     </footer>

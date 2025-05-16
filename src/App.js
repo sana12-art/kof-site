@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Consultation from './Pages/Consultation';
 import Apropos from './Pages/Apropos';
-
 import JeMeLance from './Pages/JeMeLance';
 import Login from './Pages/Login';
 import Logout from './Pages/Logout';
@@ -29,7 +28,6 @@ import JuridiqueCard from "./Pages/ServicesDetails/JuridiqueCard";
 import SocialCard from "./Pages/ServicesDetails/SocialCard";
 import FormationsCard from "./Pages/ServicesDetails/FormationCard";
 import Paie from "./Pages/ServicesDetails/Paie";
- 
 import Ressources from './Pages/Ressources';
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import './Contact.css';
 
 const Contact = () => {
@@ -28,6 +28,14 @@ const Contact = () => {
             const result = await response.json();
             if (response.ok) {
                 alert(result.message);
+                // Optionnel: reset formulaire après succès
+                setFormData({
+                  nom: '',
+                  email: '',
+                  telephone: '',
+                  entreprise: '',
+                  message: ''
+                });
             } else {
                 alert('Erreur lors de l\'envoi.');
             }
@@ -43,16 +51,50 @@ const Contact = () => {
             <p>Nous sommes impatients de construire votre succès ensemble. Laissez-nous vos informations et commencez votre parcours entrepreneurial dès aujourd'hui !</p>
 
             <form className="contact-form" onSubmit={handleSubmit}>
-                <input type="text" name="nom" placeholder="Votre nom" required onChange={handleChange} />
-                <input type="email" name="email" placeholder="Votre email" required onChange={handleChange} />
-                <input type="telephone" name="telephone" placeholder="Votre numéro de téléphone" required onChange={handleChange} />
-                <input type="entreprise" name="entreprise" placeholder="Le nom de votre entreprise" required onChange={handleChange} />
-                <textarea name="message" placeholder="Votre message" required onChange={handleChange}></textarea>
+                <input 
+                  type="text" 
+                  name="nom" 
+                  placeholder="Votre nom" 
+                  value={formData.nom}
+                  required 
+                  onChange={handleChange} 
+                />
+                <input 
+                  type="email" 
+                  name="email" 
+                  placeholder="Votre email" 
+                  value={formData.email}
+                  required 
+                  onChange={handleChange} 
+                />
+            <input 
+                type="tel" 
+                name="telephone" 
+                placeholder="Votre numéro de téléphone" 
+                value={formData.telephone}
+                required 
+                onChange={handleChange} 
+            />
+
+                <input 
+                  type="text" 
+                  name="entreprise" 
+                  placeholder="Le nom de votre entreprise" 
+                  value={formData.entreprise}
+                  required 
+                  onChange={handleChange} 
+                />
+                <textarea 
+                  name="message" 
+                  placeholder="Votre message" 
+                  value={formData.message}
+                  required 
+                  onChange={handleChange}
+                ></textarea>
                 <button type="submit">Envoyer</button>
             </form>
         </div>
     );
 };
-
 
 export default Contact;
