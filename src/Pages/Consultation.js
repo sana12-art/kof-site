@@ -28,11 +28,6 @@ const Consultation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.acceptData) {
-      setErrorMessage("Veuillez accepter la collecte des données.");
-      setSuccessMessage('');
-      return;
-    }
 
     try {
       const response = await fetch('http://localhost:5000/api/consultation', {

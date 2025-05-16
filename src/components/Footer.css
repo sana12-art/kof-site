@@ -89,11 +89,18 @@ footer {
   }
 
   .footer-section,
-  .footer-links,
-  .footer-social,
   .footer-contact {
     align-items: center;
     text-align: center;
+  }
+ 
+  .footer-links a {
+    display: inline-block;        /* Pour forcer l’alignement sur la même ligne */
+    margin: 0 10px;
+  }
+  .footer-links h4 {
+    margin-bottom: 12px;
+    
   }
 
   .footer-section .text {
@@ -113,4 +120,19 @@ footer {
   .footer-oec-logo {
     width: 100px;
   }
+  .footer-social {
+    text-align: center;
+  }
+
+  .footer-social-icons {
+    gap: 10px;
+    flex-wrap: wrap; /* Permet un retour à la ligne si petit écran */
+    margin-right: -18px;
+  }
+
+  .footer-oec-logo {
+    width: 100px;
+  }
+ 
+
 }
