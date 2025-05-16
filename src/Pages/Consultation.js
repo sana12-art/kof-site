@@ -111,10 +111,7 @@ const Consultation = () => {
           <label>Questions spécifiques :</label>
           <textarea name="questions" value={formData.questions} rows="4" placeholder="Vos questions..." onChange={handleChange}></textarea>
 
-          <div className="checkbox-container">
-            <input className="box" type="checkbox" name="acceptData" checked={formData.acceptData} onChange={handleChange} />
-            <label htmlFor="acceptData">J'accepte que mes données soient collectées.</label>
-          </div>
+        
 
           <button type="submit">Envoyer ma demande</button>
         </form>
