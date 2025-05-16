@@ -351,3 +351,9 @@
   }
 }
 
+@media (max-width: 768px) {
+  .checkbox-container .box {
+    vertical-align: middle; /* assure l'alignement vertical */
+  }
+
+}

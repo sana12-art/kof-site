@@ -112,6 +112,7 @@ const Services = () => {
             </form>
           </div>
         </motion.div>
+        
       <section class="hero-kof">
           <div class="hero-container">
             <h1 class="hero-titre">Accélérez votre croissance avec KOF-EXPERTS <br/>et concentrez-vous pleinement sur votre activité !</h1>

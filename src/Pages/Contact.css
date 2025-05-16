@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* évite le scroll horizontal */
+}
+
 .jemelance-container {
     padding: 60px 20px;
     background: linear-gradient(to right, #003366, #0055aa);
@@ -48,10 +58,21 @@
     background-color: #0088cc;
     transform: scale(1.05);
   }
-  @media (max-width: 768px) {
+ @media (max-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
   .jemelance-container {
     padding: 40px 15px;
     min-height: auto;
+    text-align: center;
   }
 
   .jemelance-container h1 {
@@ -66,17 +87,39 @@
 
   .contact-form {
     width: 100%;
-    padding: 0 5px;
+    max-width: 500px;
+    padding: 0 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
   }
 
   .contact-form input,
   .contact-form textarea {
     font-size: 14px;
     padding: 12px;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .contact-form button {
     font-size: 16px;
     padding: 12px;
+    background-color: #00aaff;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+  }
+
+  .contact-form button:hover {
+    background-color: #0088cc;
+    transform: scale(1.05);
   }
 }
