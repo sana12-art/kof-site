@@ -14,7 +14,6 @@ import { useNavigate,Link } from 'react-router-dom';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 
-
 const Home = () => {
   const navigate = useNavigate();
   const [nom, setNom] = React.useState('');
@@ -163,7 +162,24 @@ const Home = () => {
            
           </div>
         </motion.div>
-    
+      
+
+        <div className='Reservation'>
+          <h2>Bienvenue chez Kof Experts</h2>
+           <p>
+           Vous cherchez des solutions sur mesure pour répondre à vos défis professionnels ? Nos experts dédiés vous conseillent et vous accompagnent avec des stratégies adaptées à vos objectifs. Ensemble, trouvons la solution qui fera la différence pour votre activité
+          </p>
+          <motion.button
+          
+            className="cta-button"
+            onClick={() => navigate('/consultation')}
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 1, delay: 0.9 }}
+          >
+            Réserver une consultation gratuite et sans engagement dès aujourd'hui
+          </motion.button>
+        </div>
        
         
         <section className="why-section">
@@ -215,19 +231,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <div className='Reservation'>
-        <h2>Réserver une consultation</h2>
-          <motion.button
-          
-            className="cta-button"
-            onClick={() => navigate('/consultation')}
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 1, delay: 0.9 }}
-          >
-            Réserver une consultation gratuite et sans engagement dès aujourd'hui
-          </motion.button>
-        </div>
+   
         <section id="services" className="services-section">
           <h2>Nos Services</h2>
           <div className="services-grid">

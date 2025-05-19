@@ -87,84 +87,83 @@ const Services = () => {
       <section className="missions-section"></section>
       <section className="guide-services"></section>
       <section className="critere-services"></section>
-         <motion.div
-          className="hero-right"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="devis-section-wrapper">
-          <div className="form-container">
-          <div className="compact-devis-container">
-            <h3 className="compact-form-title">Obtenir un devis gratuit
-            et sans engagement</h3>
+            <motion.div
+                   className="hero-right"
+                   initial={{ opacity: 0, x: 50 }}
+                   animate={{ opacity: 1, x: 0 }}
+                   transition={{ duration: 1 }}
+                 >
+                   <div className="compact-devis-container">
+                     <h3 className="compact-form-title">OBTENIR UN DEVIS GRATUIT ET SANS ENGAGEMENT </h3>
+                     {successMessage && 
+                       <div className="success-message">
+                         Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
+                       </div>
+                     }
+                     {errorMessage && 
+                       <div className="error-message">
+                         {errorMessage}
+                       </div>
+                     }  
+                     <form className="compact-devis-form" onSubmit={handleSubmit}>
+                       <input
+                         type="text"
+                         placeholder="Nom"
+                         value={nom}
+                         onChange={(e) => setNom(e.target.value)}
+                         required
+                       />
          
-            {successMessage && 
-              <div className="success-message">
-                Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
-              </div>
-            }       
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
-            
-            <form className="compact-devis-form"onSubmit={handleSubmit} >
-            <input
-              type="text"
-              placeholder="Nom"
-              value={nom}
-              onChange={(e) => setNom(e.target.value)}
-              required
-            />
-
-            <PhoneInput
-              country={'fr'}
-              enableSearch={true}
-              preferredCountries={['fr', 'ma', 'us', 'gb']}
-              inputClass="form-input"
-              inputProps={{
-                name: 'phone',
-                required: true,
-                autoFocus: false,
-              }}
-              value={phone}
-              onChange={setPhone}
-              placeholder="Numéro de téléphone"
-            />
-
-            <input
-              type="email"
-              placeholder="Adresse email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <input
-              type="text"
-              placeholder="Votre chiffre d'affaires annuel HT (€)"
-              value={chiffreAffaires}
-              onChange={(e) => setChiffreAffaires(e.target.value)}
-            />
-
-            <button type="submit" className="compact-submit-btn">
-              Demandez votre devis
-            </button>
-
-            <p className="compact-legal">
-              En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
-            </p>
-          </form>
-          </div>
-            <div className="checklist-section">
-              <h4>Que comprend notre devis ?</h4>
-              <ul>
-                <li>Analyse gratuite de votre situation</li>
-                <li>Appel sous 24h avec un expert</li>
-                <li>Devis personnalisé sans engagement</li>
-              </ul>
-            </div>
-            </div>
-            </div>
-        </motion.div>
+                       <PhoneInput
+                         country={'fr'}
+                         enableSearch={true}
+                         preferredCountries={['fr', 'ma', 'us', 'gb']}
+                         inputClass="form-input"
+                         inputProps={{
+                           name: 'phone',
+                           required: true,
+                           autoFocus: false,
+                         }}
+                         value={phone}
+                         onChange={setPhone}
+                         placeholder="Numéro de téléphone"
+                       />
+         
+                       <input
+                         type="email"
+                         placeholder="Adresse email"
+                         value={email}
+                         onChange={(e) => setEmail(e.target.value)}
+                         required
+                       />
+         
+                       <input
+                         type="text"
+                         placeholder="Votre chiffre d'affaires annuel HT (€)"
+                         value={chiffreAffaires}
+                         onChange={(e) => setChiffreAffaires(e.target.value)}
+                       />
+         
+                       <button type="submit" className="compact-submit-btn">
+                         Demandez votre devis
+                       </button>
+         
+                       <p className="compact-legal">
+                         En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
+                       </p>
+                     </form>
+                     
+                    
+                   </div>
+                 </motion.div>
+                  <motion.div className="checklist-section">
+                    <h4>Que comprend notre devis ?</h4>
+                    <ul>
+                      <li>Analyse gratuite de votre situation</li>
+                      <li>Appel sous 24h avec un expert</li>
+                      <li>Devis personnalisé sans engagement</li>
+                    </ul>
+                  </motion.div>
 
         
       <section class="hero-kof">
