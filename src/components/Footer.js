@@ -22,8 +22,8 @@ const Footer = () => {
         <div className="footer-social">
             <h4>Suivez KOF</h4>
             <div className="footer-social-icons">
-            <a href="#"><i className="fab fa-facebook-f"></i></a>
-            <a href="#"><i className="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100084737476572"><i className="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/kofexperts/"><i className="fab fa-linkedin-in"></i></a>
             <a href="#"><i className="fab fa-instagram"></i></a>
             </div>
             <img src={OEC} alt="Logo Experts-Comptables" className="footer-oec-logo" />

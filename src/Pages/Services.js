@@ -17,7 +17,51 @@ const Services = () => {
     "Préstation social": "/prestation-sociale",
     "Formations": "/formations"
   };
-
+    const [nom, setNom] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [chiffreAffaires, setChiffreAffaires] = React.useState('');
+    const [successMessage, setSuccessMessage] = React.useState('');
+    const [errorMessage, setErrorMessage] = React.useState('');
+  
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const formData = {
+      nom,
+      phone,
+      email,
+      chiffreAffaires
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/devis', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        setSuccessMessage('Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.');
+        setErrorMessage('');
+        setNom('');
+        setPhone('');
+        setEmail('');
+        setChiffreAffaires('');
+        setTimeout(() => setSuccessMessage(''), 5000);
+      } else {
+        setErrorMessage('Une erreur est survenue lors de l’envoi. Veuillez réessayer.');
+        setSuccessMessage('');
+      }
+    } catch (error) {
+      console.error('Erreur:', error);
+      setErrorMessage('Erreur réseau. Veuillez vérifier votre connexion.');
+      setSuccessMessage('');
+    }
+  };
+   
   return (
     <div className="services-page">
       <div className="services-container">
@@ -43,75 +87,85 @@ const Services = () => {
       <section className="missions-section"></section>
       <section className="guide-services"></section>
       <section className="critere-services"></section>
-      <motion.div
+         <motion.div
           className="hero-right"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
+          <div className="devis-section-wrapper">
+          <div className="form-container">
           <div className="compact-devis-container">
             <h3 className="compact-form-title">Obtenir un devis gratuit
             et sans engagement</h3>
+         
+            {successMessage && 
+              <div className="success-message">
+                Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
+              </div>
+            }       
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             
-            <form
-              className="compact-devis-form"
-              onSubmit={async (e) => {
-                e.preventDefault();
+            <form className="compact-devis-form"onSubmit={handleSubmit} >
+            <input
+              type="text"
+              placeholder="Nom"
+              value={nom}
+              onChange={(e) => setNom(e.target.value)}
+              required
+            />
 
-                const nom = e.target[0].value;
-                const phone = e.target[1].value;
-                const email = e.target[2].value;
-                const chiffreAffaires = e.target[3].value;
-
-                try {
-                  const response = await fetch('http://localhost:5000/api/devis', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ nom, phone, email, chiffreAffaires })
-                  });
-
-                  if (response.ok) {
-                    alert('Demande envoyée avec succès !');
-                    e.target.reset(); // vider le formulaire
-                  } else {
-                    alert('Une erreur est survenue.');
-                  }
-                } catch (error) {
-                  console.error('Erreur lors de l\'envoi du formulaire :', error);
-                  alert('Erreur réseau.');
-                }
+            <PhoneInput
+              country={'fr'}
+              enableSearch={true}
+              preferredCountries={['fr', 'ma', 'us', 'gb']}
+              inputClass="form-input"
+              inputProps={{
+                name: 'phone',
+                required: true,
+                autoFocus: false,
               }}
-            >
-              <input type="text" placeholder="Nom" required />
+              value={phone}
+              onChange={setPhone}
+              placeholder="Numéro de téléphone"
+            />
 
-              <PhoneInput
-                country={'fr'}
-                enableSearch={true}
-                preferredCountries={['fr', 'ma', 'us', 'gb']}
-                inputClass="form-input"
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                  autoFocus: false
-                }}
-                placeholder="Numéro de téléphone"
-              />
+            <input
+              type="email"
+              placeholder="Adresse email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-              <input type="email" placeholder="Adresse email" required />
-              <input type="text" placeholder="Votre chiffre d'affaires annuel HT (€)" />
+            <input
+              type="text"
+              placeholder="Votre chiffre d'affaires annuel HT (€)"
+              value={chiffreAffaires}
+              onChange={(e) => setChiffreAffaires(e.target.value)}
+            />
 
-              <button type="submit" className="compact-submit-btn">
-                Demandez votre devis
-              </button>
+            <button type="submit" className="compact-submit-btn">
+              Demandez votre devis
+            </button>
 
-              <p className="compact-legal">
-                En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
-              </p>
-            </form>
+            <p className="compact-legal">
+              En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
+            </p>
+          </form>
           </div>
+            <div className="checklist-section">
+              <h4>Que comprend notre devis ?</h4>
+              <ul>
+                <li>Analyse gratuite de votre situation</li>
+                <li>Appel sous 24h avec un expert</li>
+                <li>Devis personnalisé sans engagement</li>
+              </ul>
+            </div>
+            </div>
+            </div>
         </motion.div>
+
         
       <section class="hero-kof">
           <div class="hero-container">

@@ -377,5 +377,263 @@
     margin-left: 0;
     font-size: 1.2rem;
   }
+  
 }
 
+.hero-right {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  margin-top: -19px;
+  margin-left: 110px;
+
+}
+
+/* Nouveau formulaire compact */
+.compact-devis-container {
+  width: 100%;
+ 
+}
+
+.compact-form-title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.compact-devis-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.compact-devis-form input {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.compact-devis-form input:focus {
+  outline: none;
+  border-color: #2e93ff;
+  box-shadow: 0 0 0 2px rgba(46, 147, 255, 0.2);
+}
+
+.compact-submit-btn {
+  background: rgb(46, 147, 255);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.compact-submit-btn:hover {
+  background: #1a7ae6;
+  transform: translateY(-2px);
+}
+
+.compact-legal {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 15px;
+  text-align: center;
+}
+.hero-title {
+  font-size: 2rem; /* ou 1.8rem selon le besoin */
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1rem; /* ou 0.95rem */
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+@media (max-width: 768px) {
+  .hero-right {
+    margin-left: 0 !important;
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+
+  .compact-form-title {
+    font-size: 1.3rem;
+    padding: 0 10px;
+  }
+
+  .compact-devis-form input,
+  .compact-submit-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .compact-legal {
+    font-size: 10px;
+    padding: 0 10px;
+  }
+}
+.hero-left {
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a1a1a;
+  margin-right: -90px ;
+}
+
+/* Titre principal */
+.hero-left h2 {
+  font-size: 2rem; /* 24px */
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+  color: #0055a5;
+}
+
+/* Paragraphe descriptif */
+.hero-left p {
+  font-size: 19px; /* 16px */
+  line-height: 1.5;
+  margin: 0 0 2rem 0;
+  color: #3f3f3f;
+  max-width: 49ch;
+}
+
+/* Liste des avantages */
+.hero-left .flex {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 0.75rem 0;
+  gap: 0.5rem;
+}
+
+/* Icônes avant chaque avantage */
+.hero-left .text-green-500 {
+  color: #1a1a1a;
+  font-weight: 800;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1;
+  margin-top: 0.125rem;
+}
+
+/* Étoiles de notation */
+.hero-left .text-yellow-500 {
+  color: #ffb800;
+  letter-spacing: 0.125rem;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+/* Texte de notation */
+.hero-left .text-gray-600 {
+  color: #666;
+  font-size: 0.950rem; /* 14px */
+  font-weight: 400;
+}
+
+/* Version avec slash (/) */
+.hero-left .flex .text-green-500::before {
+ 
+  display: inline-block;
+}
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 12px 20px;
+  border-radius: 5px;
+  border: 1px solid #c3e6cb;
+  margin-bottom: 15px;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #f5c6cb;
+  font-weight: bold;
+  text-align: center;
+}
+.hero-kof {
+  margin-top: 50px; /* ou plus si nécessaire */
+}
+.devis-section-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* pour le responsive */
+}
+
+.form-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.checklist-section {
+  flex: 1;
+  max-width: 400px;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.checklist-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.checklist-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checklist-section li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.checklist-section li::before {
+  content: "✔";
+  color: #2ecc71;
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .devis-section-wrapper {
+    flex-direction: column;
+  }
+
+  .checklist-section {
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+}

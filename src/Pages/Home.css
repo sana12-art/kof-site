@@ -489,6 +489,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   margin-top: -10px;
+  margin-right: 13px;
 
 }
 
@@ -604,7 +605,6 @@
     left: 0;
     white-space: normal;
   }
-
   .hero-right {
     padding: 20px;
     margin: 0 auto;
