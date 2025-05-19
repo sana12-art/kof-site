@@ -33,6 +33,7 @@ const Footer = () => {
         <div className="footer-contact">
             <h4>Contactez KOF</h4>
             <p>contact@kof-experts.com</p>
+            <p><a href="tel:0153103206">01 53 10 32 06</a></p>
         </div>
         
     </footer>

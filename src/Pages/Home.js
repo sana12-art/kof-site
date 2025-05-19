@@ -88,18 +88,10 @@ const Home = () => {
             transition={{ duration: 1.2, delay: 0.6 }}
             className="hero-description"
           >
-            KOF-EXPERTS vous accompagne dans toutes les étapes de la vie de votre entreprise : création, gestion, conseil fiscal et juridique, ressources humaines, formations et plus encore. Notre équipe d'experts est à vos côtés pour transformer vos idées en réalité.
+            KOF-EXPERTS vous accompagne dans toutes les étapes de la vie de votre entreprise : Comptabilité, Création, Gestion, Conseil Fiscal et juridique, Ressources humaines, Formations et plus encore. Notre équipe d'experts est à vos côtés pour transformer vos idées en réalité.
           </motion.p>
 
-          <motion.button
-            className="cta-button"
-            onClick={() => navigate('/consultation')}
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 1, delay: 0.9 }}
-          >
-            Réserver une consultation gratuite et sans engagement dès aujourd'hui
-          </motion.button>
+        
         </div>
 
         <motion.div
@@ -109,8 +101,7 @@ const Home = () => {
           transition={{ duration: 1 }}
         >
           <div className="compact-devis-container">
-            <h3 className="compact-form-title">Obtenir un devis gratuit
-            et sans engagement</h3>
+            <h3 className="compact-form-title">OBTENIR UN DEVIS GRATUIT ET SANS ENGAGEMENT </h3>
             {successMessage && 
               <div className="success-message">
                 Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
@@ -224,7 +215,19 @@ const Home = () => {
             </div>
           </div>
         </section>
-
+        <div className='Reservation'>
+        <h2>Réserver une consultation</h2>
+          <motion.button
+          
+            className="cta-button"
+            onClick={() => navigate('/consultation')}
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 1, delay: 0.9 }}
+          >
+            Réserver une consultation gratuite et sans engagement dès aujourd'hui
+          </motion.button>
+        </div>
         <section id="services" className="services-section">
           <h2>Nos Services</h2>
           <div className="services-grid">

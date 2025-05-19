@@ -37,6 +37,8 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+    margin-right: 93px !important;
+
 }
 
 .nav-link {
@@ -211,6 +213,7 @@
       flex-direction: column;
       gap: 12px;
       width: 100%;
+      margin-left: 88px;
     }
   
  /* En version mobile, on n'affiche plus display:none */
