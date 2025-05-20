@@ -16,21 +16,24 @@ import PhoneInput from 'react-phone-input-2';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [nom, setNom] = React.useState('');
-  const [phone, setPhone] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [chiffreAffaires, setChiffreAffaires] = React.useState('');
-  const [successMessage, setSuccessMessage] = React.useState('');
-  const [errorMessage, setErrorMessage] = React.useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [revenue, setRevenue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
 
+  
   const handleSubmit = async (e) => {
   e.preventDefault();
-
+  setLoading(true);
+  setMessage(null);
   const formData = {
-    nom,
+    name,
     phone,
     email,
-    chiffreAffaires
+    revenue,
+    page_origin: 'home'
   };
 
   try {
@@ -42,22 +45,17 @@ const Home = () => {
       body: JSON.stringify(formData),
     });
 
-    if (response.ok) {
-      setSuccessMessage('Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.');
-      setErrorMessage('');
-      setNom('');
+     const result = await response.json();
+      setMessage({ type: 'success', text: result.message });
+      setName('');
       setPhone('');
       setEmail('');
-      setChiffreAffaires('');
-      setTimeout(() => setSuccessMessage(''), 5000);
-    } else {
-      setErrorMessage('Une erreur est survenue lors de l’envoi. Veuillez réessayer.');
-      setSuccessMessage('');
-    }
-  } catch (error) {
+      setRevenue('');
+    } catch (error) {
     console.error('Erreur:', error);
-    setErrorMessage('Erreur réseau. Veuillez vérifier votre connexion.');
-    setSuccessMessage('');
+     setMessage({ type: 'error', text: "Une erreur est survenue, merci d'essayer plus tard." });
+  } finally {
+    setLoading(false);
   }
 };
  
@@ -101,22 +99,13 @@ const Home = () => {
         >
           <div className="compact-devis-container">
             <h3 className="compact-form-title">OBTENIR UN DEVIS GRATUIT ET SANS ENGAGEMENT </h3>
-            {successMessage && 
-              <div className="success-message">
-                Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
-              </div>
-            }
-            {errorMessage && 
-              <div className="error-message">
-                {errorMessage}
-              </div>
-            }  
+          
             <form className="compact-devis-form" onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Nom"
-                value={nom}
-                onChange={(e) => setNom(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
               />
 
@@ -146,12 +135,18 @@ const Home = () => {
               <input
                 type="text"
                 placeholder="Votre chiffre d'affaires annuel HT (€)"
-                value={chiffreAffaires}
-                onChange={(e) => setChiffreAffaires(e.target.value)}
+                value={revenue}
+                onChange={(e) => setRevenue(e.target.value)}
+                required
               />
-
-              <button type="submit" className="compact-submit-btn">
-                Demandez votre devis
+            
+              {message && (
+                <p className={message.type === 'error' ? 'error-message' : 'success-message'}>
+                  {message.text}
+                </p>
+              )}
+              <button type="submit" className="compact-submit-btn"disabled={loading}>
+                 {loading ? 'Envoi en cours...' : 'Demandez votre devis'}
               </button>
 
               <p className="compact-legal">
@@ -329,69 +324,70 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <motion.div
+               <motion.div
           className="hero-right"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
           <div className="compact-devis-container">
-            <h3 className="compact-form-title">OBTENIR UN DEVIS GRATUIT ET SANS ENGAGEMENT</h3>
-         
-            {successMessage && 
-              <div className="success-message">
-                Merci ! Votre demande a bien été envoyée. Un conseiller vous contactera très bientôt.
-              </div>
-            }       
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <h3 className="compact-form-title">OBTENIR UN DEVIS GRATUIT ET SANS ENGAGEMENT </h3>
+          
+            <form className="compact-devis-form" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Nom"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+
+              <PhoneInput
+                country={'fr'}
+                enableSearch={true}
+                preferredCountries={['fr', 'ma', 'us', 'gb']}
+                inputClass="form-input"
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                  autoFocus: false,
+                }}
+                value={phone}
+                onChange={setPhone}
+                placeholder="Numéro de téléphone"
+              />
+
+              <input
+                type="email"
+                placeholder="Adresse email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <input
+                type="text"
+                placeholder="Votre chiffre d'affaires annuel HT (€)"
+                value={revenue}
+                onChange={(e) => setRevenue(e.target.value)}
+                required
+              />
+
+             {message && (
+                <p className={message.type === 'error' ? 'error-message' : 'success-message'}>
+                  {message.text}
+                </p>
+              )}
+              <button type="submit" className="compact-submit-btn"disabled={loading}>
+                 {loading ? 'Envoi en cours...' : 'Demandez votre devis'}
+              </button>
+
+              <p className="compact-legal">
+                En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
+              </p>
+            </form>
             
-            <form className="compact-devis-form"onSubmit={handleSubmit} >
-            <input
-              type="text"
-              placeholder="Nom"
-              value={nom}
-              onChange={(e) => setNom(e.target.value)}
-              required
-            />
-
-            <PhoneInput
-              country={'fr'}
-              enableSearch={true}
-              preferredCountries={['fr', 'ma', 'us', 'gb']}
-              inputClass="form-input"
-              inputProps={{
-                name: 'phone',
-                required: true,
-                autoFocus: false,
-              }}
-              value={phone}
-              onChange={setPhone}
-              placeholder="Numéro de téléphone"
-            />
-
-            <input
-              type="email"
-              placeholder="Adresse email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <input
-              type="text"
-              placeholder="Votre chiffre d'affaires annuel HT (€)"
-              value={chiffreAffaires}
-              onChange={(e) => setChiffreAffaires(e.target.value)}
-            />
-
-            <button type="submit" className="compact-submit-btn">
-              Demandez votre devis
-            </button>
-
-            <p className="compact-legal">
-              En cliquant sur "Demandez votre devis", vous acceptez d'être contacté par KOF-EXPERTS.
-            </p>
-          </form>
+           
           </div>
         </motion.div>
 

@@ -39,7 +39,7 @@ const Ressources = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Télécharger / Voir
+            Télécharger 
           </a>
           </li>
         ))}

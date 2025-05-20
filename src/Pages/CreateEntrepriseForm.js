@@ -5,6 +5,8 @@ import 'react-phone-input-2/lib/style.css'
 
 
 const CreateEntrepriseForm = () => {
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     domaine: '',
@@ -26,15 +28,55 @@ const CreateEntrepriseForm = () => {
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Demande envoyée ! Nous avons reçu votre demande avec succès.");
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch('http://localhost:5000/api/creation-entreprise', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      setSuccessMessage("Votre demande a bien été enregistrée !");
+      setErrorMessage('');
+      setFormData({
+        domaine: '',
+        nomPrenom: '',
+        email: '',
+        telephone: '',
+        formeJuridique: '',
+        dateCreation: '',
+        nomSociete: '',
+        capitalSocial: '',
+        dateCreationSouhaitee: ''
+      });
+      setTimeout(() => setSuccessMessage(''), 5000);
+    } else {
+      setErrorMessage(result.message || "Erreur lors de l’enregistrement.");
+      setSuccessMessage('');
+    }
+  } catch (error) {
+    console.error('Erreur lors de l’envoi :', error);
+    setErrorMessage("Erreur lors de l’envoi du formulaire.");
+    setSuccessMessage('');
+  }
+};
+
 
   return (
+    
     <div className="create-form-container">
+    {successMessage && <div className="success-message">{successMessage}</div>}
+    {errorMessage && <div className="error-message">{errorMessage}</div>}
     {step === 1 && (
+      
   <div>
+    
+
     <h2>Quel sera votre domaine d’activité ?</h2>
     <select name="domaine" value={formData.domaine} onChange={handleChange}>
       <option value="">-- Choisissez un domaine --</option>
