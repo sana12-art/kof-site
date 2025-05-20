@@ -183,6 +183,7 @@
   font-family: 'Inter', system-ui, sans-serif;
   color: #1a1a1a;
   margin-right: -90px;
+  margin-top: 29px;
 }
 
 /* Titre principal */
@@ -318,7 +319,6 @@
     padding: 80px 20px;
     text-align: center;
     background-color: #fff;
-    margin-left:-52px;
 
   }
   
@@ -969,6 +969,7 @@
   z-index: 1;
   margin: 0 auto;
   max-width: 100%;
+  margin-left: 80px;
 }
 
 /* Overlay pour améliorer la lisibilité du texte */
@@ -992,6 +993,7 @@
   margin-bottom: 1.5rem;
   color: #282828;
   text-align: center;
+  margin-right: 20px;
 }
 
 .Reservation p {
@@ -1003,6 +1005,7 @@
   margin: 0 auto 2rem;
   text-align: center;
   padding: 0 1rem;
+  margin-left: 20px;
 }
 
 .cta-button {
@@ -1018,7 +1021,7 @@
   cursor: pointer;
   text-align: center; /* Ajouté pour centrer le texte */
   transition: background-color 0.3s ease; /* Animation au survol */
-  margin-right: 410px !important;
+  margin-left: 179px !important;
 }
 
 
@@ -1078,6 +1081,7 @@
   object-fit: contain;
 }
 /* ===== VERSION MOBILE (max-width: 768px) ===== */
+
 @media (max-width: 768px) {
   /* Hero Section */
   .hero-section {
@@ -1147,7 +1151,8 @@
   /* Services Section */
   .services-section {
     padding: 50px 15px !important;
-    margin-left: 0 !important;
+    width: 100% !important;
+
   }
 
   .services-section h2 {

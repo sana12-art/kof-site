@@ -336,8 +336,7 @@ const Home = () => {
           transition={{ duration: 1 }}
         >
           <div className="compact-devis-container">
-            <h3 className="compact-form-title">Obtenir un devis gratuit
-            et sans engagement</h3>
+            <h3 className="compact-form-title">OBTENIR UN DEVIS GRATUIT ET SANS ENGAGEMENT</h3>
          
             {successMessage && 
               <div className="success-message">
