@@ -681,8 +681,8 @@
   }
 
   .service-icon {
-    width: 80px;
-    height: 80px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 15px;
   }
 
@@ -1169,12 +1169,6 @@
     min-height: auto !important;
     padding: 20px !important;
     height: auto !important;
-  }
-
-  .service-icon {
-    width: 80px !important;
-    height: 80px !important;
-    margin-bottom: 15px !important;
   }
 
   /* Reservation Section */
