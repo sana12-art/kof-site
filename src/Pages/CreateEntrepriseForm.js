@@ -39,6 +39,7 @@ const CreateEntrepriseForm = () => {
     });
 
     const result = await response.json();
+    console.log('Réponse du backend:', result);
 
     if (response.ok) {
       setSuccessMessage("Votre demande a bien été enregistrée !");

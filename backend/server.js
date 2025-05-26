@@ -8,13 +8,14 @@ const PORT = 5000;  // Port différent de MySQL
 app.use(cors());
 app.use(express.json());  // pour lire le JSON envoyé depuis React
 
+
 // Connexion MySQL
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
-  database: 'kofsite_db',
-  port: 3306
+  password: 'sZm)iGjamIvx6]Uj',
+  database: 'kofsite',
+  port: 3307
 });
 
 db.connect(err => {
@@ -123,7 +124,39 @@ app.post('/api/register', async (req, res) => {
     res.status(500).json({ message: 'Erreur serveur.' });
   }
 });
+app.get('/api/dashboard', (req, res) => {
+  db.query('SELECT * FROM dashboard LIMIT 1', (err, result) => {
+    if (err) {
+      console.error('Erreur SQL :', err);
+      return res.status(500).json({ error: 'Erreur serveur' });
+    }
+    res.json(result[0]);
+  });
+});
+app.post('/api/creation-entreprise', (req, res) => {
+  const {
+    nom,
+    email,
+    telephone,
+    forme_juridique,
+    nom_entreprise,
+    secteur_activite,
+    ville,
+    message
+  } = req.body;
 
+  const sql = `INSERT INTO creation_entreprise_requests 
+    (nom, email, telephone, forme_juridique, nom_entreprise, secteur_activite, ville, message)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+
+  db.query(sql, [nom, email, telephone, forme_juridique, nom_entreprise, secteur_activite, ville, message], (err, result) => {
+    if (err) {
+      console.error('Erreur SQL:', err);
+      return res.status(500).json({ message: 'Erreur lors de l’enregistrement.' });
+    }
+    res.json({ message: 'Votre demande de création d’entreprise a bien été enregistrée !' });
+  });
+});
 
 
 

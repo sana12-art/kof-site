@@ -19,6 +19,12 @@ const ressourcesData = [
     title: "FAQ sur la comptabilité",
     description: "Réponses aux questions les plus courantes sur la gestion comptable.",
     link: "/FAQ.docx"
+  },
+  {
+    id: 4,
+    title: "Comprendre le régime de TVA",
+    description: "Informations officielles sur le régime de TVA pour les entreprises.",
+    link: "https://www.economie.gouv.fr/entreprises/regime-tva#"
   }
 ];
 
