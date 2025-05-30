@@ -8,9 +8,7 @@ import Footer from './components/Footer';
 import Consultation from './Pages/Consultation';
 import Apropos from './Pages/Apropos';
 import JeMeLance from './Pages/JeMeLance';
-import Login from './Pages/Login';
 import Logout from './Pages/Logout';
-import Register from './Pages/Register';
 import DropdownMenu from './Pages/DropdownMenu'; 
 import CreateEntrepriseForm from './Pages/CreateEntrepriseForm';
 import Aide from './Pages/Aide';
@@ -49,9 +47,7 @@ function App() {
           <Route path="/presse" element={<Presse />} />
           <Route path="/creation-entreprise" element={<CreateEntrepriseForm />} />
           <Route path="/dropdownmenu" element={<DropdownMenu/>} />
-          <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<JeMeLance />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/" element={<Home/>}></Route>

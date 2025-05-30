@@ -49,9 +49,7 @@ const Navbar = () => {
                 <div className="navbar-right">
                     <a href="tel:0153103206" className="phone-button">01 53 10 32 06</a>
                     <Link to="/contact" className="contact-button">Nous contacter</Link>
-                    <Link to="/login" className="auth-icon" aria-label="Connexion">
-                        <i className="fas fa-user"></i>
-                    </Link>
+                    
                 </div>
                 </div>
 
