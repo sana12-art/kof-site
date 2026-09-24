@@ -1,21 +1,26 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const app = express();
-const PORT = 5000;  // Port différent de MySQL
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// ALLOWED_ORIGINS : liste d'origines séparées par des virgules (ex : https://kof-site.vercel.app)
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000')
+  .split(',')
+  .map((o) => o.trim());
+app.use(cors({ origin: allowedOrigins }));
 app.use(express.json());  // pour lire le JSON envoyé depuis React
 
 
-// Connexion MySQL
+// Connexion MySQL (identifiants dans backend/.env, jamais dans le code)
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'sZm)iGjamIvx6]Uj',
-  database: 'kofsite',
-  port: 3307
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME || 'kofsite',
+  port: Number(process.env.DB_PORT) || 3307
 });
 
 db.connect(err => {
@@ -64,36 +69,24 @@ app.post('/api/jemelance', (req, res) => {
     }
   });
 });
+// Connexion : compare le mot de passe haché (table `users`, la même que /api/register).
+// Aucun compte n'est créé ici et aucun mot de passe n'est stocké en clair.
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
+  if (!email || !password) {
+    return res.status(400).json({ success: false, message: 'Email et mot de passe requis.' });
+  }
 
-  // Vérifie si l'utilisateur existe déjà
-  const checkSql = 'SELECT * FROM utilisateurs WHERE email = ?';
-  db.query(checkSql, [email], (err, results) => {
+  db.query('SELECT password FROM users WHERE email = ?', [email], async (err, results) => {
     if (err) {
       console.error('Erreur SQL:', err);
       return res.status(500).json({ success: false, message: 'Erreur serveur.' });
     }
-
-    if (results.length > 0) {
-      // L'utilisateur existe, vérifier le mot de passe
-      const user = results[0];
-      if (user.password === password) {
-        res.json({ success: true, message: 'Connexion réussie' });
-      } else {
-        res.status(401).json({ success: false, message: 'Mot de passe incorrect' });
-      }
-    } else {
-      // L'utilisateur n'existe pas : on l'ajoute directement
-      const insertSql = 'INSERT INTO utilisateurs (email, password) VALUES (?, ?)';
-      db.query(insertSql, [email, password], (err, result) => {
-        if (err) {
-          console.error('Erreur lors de l\'insertion:', err);
-          return res.status(500).json({ success: false, message: 'Erreur serveur' });
-        }
-        res.json({ success: true, message: 'Utilisateur créé et connecté' });
-      });
+    const valid = results.length > 0 && (await bcrypt.compare(password, results[0].password));
+    if (!valid) {
+      return res.status(401).json({ success: false, message: 'Email ou mot de passe incorrect' });
     }
+    res.json({ success: true, message: 'Connexion réussie' });
   });
 });
 app.post('/api/register', async (req, res) => {

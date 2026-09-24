@@ -1,127 +1,100 @@
 import React, { useState } from 'react';
+import PageHero from '../components/PageHero';
+import { postJson } from '../services/api';
+import { CONTACT } from '../config';
+import homme from '../assets/homme.svg';
 import './Consultation.css';
-import homme from '../assets/homme.svg'; 
-import { FaFacebookF, FaXTwitter, FaInstagram } from 'react-icons/fa6';
+
+const SERVICES = [
+  'Comptabilité',
+  'Conseil en gestion',
+  'Conseil fiscal',
+  "Création d'entreprise",
+  'Conseil financier',
+  'Conseil juridique',
+  'RH et conseil social',
+  'Formations',
+  'Accompagnement sur mesure',
+];
+
+const initialState = { service: '', nom: '', email: '', phone: '', dateHeure: '', questions: '' };
 
 const Consultation = () => {
-  const [formData, setFormData] = useState({
-    service: '',
-    nom: '',
-    email: '',
-    phone: '',
-    dateHeure: '',
-    questions: '',
-    acceptData: false,
-  });
-
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [formData, setFormData] = useState(initialState);
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    try {
-      const response = await fetch('http://localhost:5000/api/consultation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSuccessMessage("Consultation reçue et email envoyé avec succès !");
-        setErrorMessage('');
-        // Réinitialiser le formulaire
-        setFormData({
-          service: '',
-          nom: '',
-          email: '',
-          phone: '',
-          dateHeure: '',
-          questions: '',
-          acceptData: false,
-        });
-        setTimeout(() => setSuccessMessage(''), 5000); // message disparaît après 5 sec
-      } else {
-        setErrorMessage(result.message || "Erreur lors de l’envoi.");
-        setSuccessMessage('');
-      }
-    } catch (error) {
-      console.error('Erreur lors de l’envoi :', error);
-      setErrorMessage("Erreur lors de l’envoi du formulaire.");
-      setSuccessMessage('');
+    setLoading(true);
+    setStatus(null);
+    const result = await postJson('/api/consultation', formData);
+    if (result.ok) {
+      setStatus({ type: 'success', text: 'Votre demande de consultation a bien été reçue. Nous vous recontactons rapidement.' });
+      setFormData(initialState);
+    } else {
+      setStatus({ type: 'error', text: result.message });
     }
+    setLoading(false);
   };
 
   return (
-    <div className="consultation-container">
-      <div className="consultation-columns">
-        <div className="consultation-text">
-          <h1>Vous avez un projet ? <br/>Contactez-nous pour <br/>planifier votre <br/> première <br/>consultation <br/> gratuite !</h1>
-          <p>
-            Nous sommes heureux de vous offrir une consultation <br/> initiale gratuite...
-          </p>
+    <div className="page">
+      <title>Consultation gratuite | KOF-EXPERTS</title>
+      <PageHero
+        title="Planifiez votre première consultation gratuite"
+        subtitle="Vous avez un projet ? Parlons-en : nous vous offrons une première consultation gratuite et sans engagement."
+      />
+
+      <section className="section">
+        <div className="container consultation-grid">
+          <form className="form-stack consultation-form card" onSubmit={handleSubmit}>
+            <label htmlFor="c-service">Service souhaité</label>
+            <select id="c-service" name="service" value={formData.service} onChange={handleChange} required>
+              <option value="">-- Choisissez un service --</option>
+              {SERVICES.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+
+            <label htmlFor="c-nom">Nom</label>
+            <input id="c-nom" type="text" name="nom" value={formData.nom} placeholder="Votre nom" autoComplete="name" onChange={handleChange} required />
+
+            <label htmlFor="c-email">Email</label>
+            <input id="c-email" type="email" name="email" value={formData.email} placeholder="Adresse e-mail" autoComplete="email" onChange={handleChange} required />
+
+            <label htmlFor="c-phone">Téléphone</label>
+            <input id="c-phone" type="tel" name="phone" value={formData.phone} placeholder="Numéro de téléphone" autoComplete="tel" onChange={handleChange} required />
+
+            <label htmlFor="c-date">Date et heure préférées</label>
+            <input id="c-date" type="datetime-local" name="dateHeure" value={formData.dateHeure} onChange={handleChange} />
+
+            <label htmlFor="c-questions">Questions spécifiques</label>
+            <textarea id="c-questions" name="questions" value={formData.questions} rows="4" placeholder="Vos questions…" onChange={handleChange}></textarea>
+
+            {status && <p className={`form-message ${status.type}`} role="status">{status.text}</p>}
+
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Envoi en cours…' : 'Envoyer ma demande'}
+            </button>
+          </form>
+
+          <aside className="consultation-side">
+            <img src={homme} alt="" className="consultation-image" loading="lazy" />
+            <div className="consultation-contact card">
+              <h2>Pour toute question</h2>
+              <p><i className="fas fa-phone" aria-hidden="true"></i> <a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
+              <p><i className="fas fa-location-dot" aria-hidden="true"></i> {CONTACT.address}</p>
+              <p><i className="fas fa-envelope" aria-hidden="true"></i> <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+            </div>
+          </aside>
         </div>
-
-        <form className="consultation-form" onSubmit={handleSubmit}>
-          {successMessage && <p className="success-message">{successMessage}</p>}
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-          <label>Service souhaité :</label>
-          <select name="service" value={formData.service} onChange={handleChange} required>
-            <option value="">-- Choisissez un service --</option>
-            <option>Comptabilité</option>
-            <option>Conseil en gestion</option>
-            <option>Conseil fiscal</option>
-            <option>Création d’entreprise</option>         
-            <option>Conseil Financier</option>
-            <option>Conseil Juridique</option>
-            <option>RH et Conseil Social</option>
-            <option>Formations</option>
-            <option>Accompagnement sur mesure</option>
-          </select>
-
-          <label>Nom :</label>
-          <input type="text" name="nom" value={formData.nom} placeholder="Nom" onChange={handleChange} required />
-
-          <label>Email :</label>
-          <input type="email" name="email" value={formData.email} placeholder="Adresse e-mail" onChange={handleChange} required />
-
-          <label>Téléphone :</label>
-          <input type="tel" name="phone" value={formData.phone} placeholder="Numéro de téléphone" onChange={handleChange} required />
-
-          <label>Date et heure préférées :</label>
-          <input type="datetime-local" name="dateHeure" value={formData.dateHeure} onChange={handleChange} />
-
-          <label>Questions spécifiques :</label>
-          <textarea name="questions" value={formData.questions} rows="4" placeholder="Vos questions..." onChange={handleChange}></textarea>
-
-        
-
-          <button type="submit">Envoyer ma demande</button>
-        </form>
-      </div>
-
-      <div className="consultation-image">
-        <img src={homme} alt="Homme vecteur" />
-      </div>
-
-      <div className="consultation-contact">
-        <h1>Pour toutes questions...</h1>
-        <div data-number="01"><span>01 53 10 32 06</span></div>
-        <div data-number="02"><span>60 Rue de La Jonquière, 75017 Paris</span></div>
-        <div data-number="03"><span>contact@kof-experts.ma</span></div>
-      </div>
+      </section>
     </div>
   );
 };

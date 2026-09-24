@@ -1,62 +1,84 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../assets/logo.png';
+import { CONTACT } from '../config';
+
+const links = [
+  { to: '/', label: 'Accueil', end: true },
+  { to: '/services', label: 'Services' },
+  { to: '/creation-entreprise', label: "Création d'entreprise" },
+  { to: '/ressources', label: 'Ressources' },
+  { to: '/apropos', label: 'À propos' },
+];
 
 const Navbar = () => {
-    const [showResources, setShowResources] = useState(false);
-    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
 
-    const toggleMobileMenu = () => {
-        setMobileMenuOpen(!isMobileMenuOpen);
+  // Ferme le menu mobile à chaque changement de page
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Empêche le défilement de la page derrière le menu ouvert
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
     };
+  }, [open]);
 
-    return (
-        <nav className='navbar'>
-            <div className='navbar-container'>
-                {/* Logo à gauche */}
-                <div className='navbar-logo'>
-                    <Link to="/">
-                        <img src={logo} alt="Logo KOF" className='logo-img' />
-                    </Link>
-                </div>
+  return (
+    <header className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-logo" aria-label="KOF-EXPERTS - Accueil">
+          <img src={logo} alt="KOF-EXPERTS" className="logo-img" />
+        </Link>
 
-                {/* Menu mobile */}
-                <div className="menu-icon" onClick={toggleMobileMenu} aria-label="Menu mobile">
-                    <i className={isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
-                </div>
+        <button
+          type="button"
+          className="menu-icon"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-expanded={open}
+          aria-controls="main-nav"
+        >
+          <i className={open ? 'fas fa-times' : 'fas fa-bars'} aria-hidden="true"></i>
+        </button>
 
-                {/* Liens de navigation */}
-                <div className={`navbar-links ${isMobileMenuOpen ? 'mobile-menu' : ''}`}>
-                    <ul className="nav-menu">
-                        <li><Link to="/" className="nav-link">Accueil</Link></li>
-                        <li><Link to="/services" className="nav-link">Services</Link></li>
-                        <li><Link to="/creation-entreprise" className="nav-link">Création d'entreprise</Link></li>
-                        <li>
-                            <Link 
-                                to="/ressources" 
-                                className="nav-link"
-                                onMouseEnter={() => setShowResources(true)}
-                                onMouseLeave={() => setShowResources(false)}
-                            >
-                                Ressources
-                            </Link>
-                            
-                        </li>
-                     
-                    </ul>
-                      {/* Section contact */}
-                <div className="navbar-right">
-                    <a href="tel:0153103206" className="phone-button">01 53 10 32 06</a>
-                    <Link to="/contact" className="contact-button">Nous contacter</Link>
-                    
-                </div>
-                </div>
+        <nav id="main-nav" className={`navbar-links ${open ? 'mobile-menu' : ''}`} aria-label="Navigation principale">
+          <ul className="nav-menu">
+            {links.map(({ to, label, end }) => (
+              <li key={to}>
+                <NavLink to={to} end={end} className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
 
-              
-            </div>
+          <div className="navbar-right">
+            <a href={CONTACT.phoneHref} className="phone-button">
+              <i className="fas fa-phone" aria-hidden="true"></i> {CONTACT.phone}
+            </a>
+            <Link to="/consultation" className="contact-button">
+              Consultation gratuite
+            </Link>
+          </div>
         </nav>
-    );
+      </div>
+      {open && <div className="navbar-backdrop" onClick={() => setOpen(false)} aria-hidden="true" />}
+    </header>
+  );
 };
 
 export default Navbar;

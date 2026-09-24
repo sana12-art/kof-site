@@ -1,158 +1,69 @@
-/* Ressources.css */
-.ressources-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-}
-
-.ressources-container h1 {
-  color: #2c3e50;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.ressources-container > p {
-  color: #7f8c8d;
-  text-align: center;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  font-size: 1.1rem;
-}
-
 .ressources-list {
   list-style: none;
+  margin: 0 auto;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  max-width: 860px;
+  display: grid;
+  gap: 18px;
 }
 
 .resource-item {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-left: 4px solid #3498db;
-}
-
-.resource-item h3 {
-  color: #2c3e50;
-  margin-top: 0;
-  margin-bottom: 0.8rem;
-  font-size: 1.25rem;
-}
-
-.resource-item p {
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.download-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  gap: 20px;
+  padding: 24px 28px;
 }
 
-.download-link:hover {
-  color: #2980b9;
-  text-decoration: underline;
+.resource-icon {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 1.5rem;
 }
 
-.download-link::before {
-  content: "↓";
-  font-weight: bold;
+.resource-body {
+  flex: 1;
+  min-width: 0;
 }
 
-/* Variantes par type de ressource */
-.resource-item:nth-child(2) {
-  border-left-color: #2980b9;
-}
-.resource-item:nth-child(2) .download-link {
-  color: #2980b9;
-}
-
-.resource-item:nth-child(3) {
-  border-left-color: #2980b9;
-}
-.resource-item:nth-child(3) .download-link {
-  color: #2980b9;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .ressources-container {
-    padding: 1.5rem;
-  }
-}
-/* Ressources.css - Partie boutons seulement */
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  border: 2px solid transparent;
-}
-
-/* Style de base */
-.download-btn {
-  background-color: #3498db;
-  color: white;
-}
-
-/* Hover */
-.download-btn:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Style pour PDF */
-.resource-pdf .download-btn {
-  background-color: #e74c3c; /* Rouge pour PDF */
-}
-
-/* Style pour DOC */
-.resource-doc .download-btn {
-  background-color: #2ecc71; /* Vert pour DOC */
-}
-
-/* Style pour liens */
-.resource-link .download-btn {
-  background-color: #f39c12; /* Orange pour liens */
-}
-
-/* Icône */
-.download-btn::before {
-  content: "";
+.resource-tag {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
 }
 
-/* Icônes selon type */
-.resource-pdf .download-btn::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M8 17l4 4 4-4m-4-5v9m-6 3h12a2 2 0 002-2V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16a2 2 0 002 2z"/></svg>');
+.resource-body h2 {
+  font-size: 1.1rem;
+  margin: 2px 0 4px;
 }
 
-.resource-doc .download-btn::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 3v5h5m-5 8h2m-4-4h4"/></svg>');
+.resource-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-.resource-link .download-btn::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4m-8-2l8-8m0 0v5m0-5h-5"/></svg>');
+.resource-btn {
+  flex-shrink: 0;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .resource-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 20px;
+  }
+  .resource-btn {
+    width: 100%;
+  }
 }

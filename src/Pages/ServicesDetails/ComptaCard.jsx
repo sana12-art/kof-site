@@ -12,7 +12,7 @@ const ComptaCard = () => {
       </p>
 
       <h2>Confiez votre comptabilité à quelqu'un d'autre.</h2>
-      <p>Êtes-vous un entrepreneur indépendant ? Êtes-vous à la tête d'une TPE ou PME ? Voulez-vous faciliter votre quotidien et vous focaliser sur votre domaine d'activité ? Il vous faut Keobiz, le spécialiste en comptabilité ! Notre mission consiste à vous soutenir tout au long des étapes cruciales de la vie de votre entreprise, depuis sa fondation jusqu'à son expansion, en vous fournissant une consultation sur mesure.
+      <p>Êtes-vous un entrepreneur indépendant ? Êtes-vous à la tête d'une TPE ou PME ? Voulez-vous faciliter votre quotidien et vous focaliser sur votre domaine d'activité ? Il vous faut KOF-EXPERTS, votre spécialiste en comptabilité ! Notre mission consiste à vous soutenir tout au long des étapes cruciales de la vie de votre entreprise, depuis sa fondation jusqu'à son expansion, en vous fournissant une consultation sur mesure.
       Vous disposez de tout ce qu'il vous faut pour assurer la conformité de votre comptabilité (bilan, déclaration fiscale, compte de résultat, etc.), à des prix ajustés et concurrentiels.</p>
 
       <h2>Pourquoi solliciter les services d'un comptable professionnel ?</h2>

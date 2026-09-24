@@ -1,59 +1,81 @@
 .create-form-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fdfdfd;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .create-form-container h2 {
-    color: #1a237e;
-    font-size: 22px;
-    margin-bottom: 15px;
-  }
-  
-  .create-form-container input,
-  .create-form-container select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-  }
-  
-  .create-form-container button {
-    padding: 10px 20px;
-    margin: 10px 5px;
-    background-color: #1a237e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s ease;
-  }
-  
-  .create-form-container button:hover {
-    background-color: #3949ab;
-  }
-  
-  .success-message {
-    text-align: center;
-    font-size: 18px;
-    color: #2e7d32;
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  .success-message {
-  color: green;
-  font-weight: bold;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
 }
 
-.error-message {
-  color: red;
-  font-weight: bold;
+.create-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  overflow: hidden;
+}
+
+.create-progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  transition: width 0.4s var(--ease);
+}
+
+.create-step-label {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.create-form-container h2 {
+  font-size: 1.35rem;
+  margin: 6px 0 4px;
+}
+
+.create-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.create-done {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.create-done-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--success-bg);
+  color: var(--success-text);
+  font-size: 1.6rem;
+}
+
+.create-done p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.create-done-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .create-form-container {
+    padding: 26px 18px;
+  }
+  .create-actions {
+    flex-direction: column-reverse;
+  }
+  .create-actions .btn {
+    width: 100%;
+  }
 }

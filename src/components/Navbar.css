@@ -1,347 +1,252 @@
-/* Navbar globale */
 .navbar {
-    width: 100%;
-    background-color:rgba(255, 255, 255, 0.969);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 20px; /* Ajuste ici */
-    backdrop-filter: blur(6px);
-    font-family: 'Inter', sans-serif;
-
-  }
-  .navbar {
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--navbar-h);
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-  
-/* Conteneur principal de la navbar avec box */
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-  }
-/* Logo */
+.navbar.is-scrolled {
+  box-shadow: 0 6px 24px rgba(13, 35, 64, 0.09);
+  border-color: var(--border);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .logo-img {
-  width: 130px;
-  height: auto;
-  z-index: 2;
-  transition: transform 0.3s ease;
+  height: 56px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s var(--ease);
 }
 
-.logo-img:hover {
-  transform: scale(1.05);
+.navbar-logo:hover .logo-img {
+  transform: scale(1.04);
 }
 
-/* Menu principal */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  gap: 24px;
+}
+
 .nav-menu {
   display: flex;
-  list-style: none;
   align-items: center;
-  justify-content: center;
-  flex: 1;
+  gap: 4px;
+  list-style: none;
   margin: 0;
   padding: 0;
-  gap: 20px;
-  margin-right: 100px !important;
 }
 
 .nav-link {
-  text-decoration: none;
-  color: #1f2937;
-  padding: 10px 15px;
+  position: relative;
+  display: block;
+  padding: 10px 14px;
+  color: var(--text);
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #fff;
-  background-color: #047bf2;
-  transform: translateY(-2px);
+  color: var(--primary);
+  background: var(--primary-soft);
 }
 
-/* Section droite */
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
 
-/* Bouton téléphone */
-.phone-button {
-  background-color: #047bf2;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 12px;
+.phone-button,
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(4, 123, 242, 0.3);
-  transition: all 0.3s ease;
+  font-size: 0.92rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s var(--ease), background-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.25s var(--ease);
+}
+
+.phone-button {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(4, 123, 242, 0.28);
 }
 
 .phone-button:hover {
-  background-color: #0366c9;
+  background: var(--primary-dark);
   transform: translateY(-2px);
 }
 
-/* Bouton "Nous contacter" */
 .contact-button {
-  background-color: transparent;
-  color: #047bf2;
-  border: 2px solid #047bf2;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .contact-button:hover {
-  background-color: #047bf2;
+  background: var(--primary);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(4, 123, 242, 0.2);
 }
 
-/* Animation à l’apparition */
-@keyframes navbarFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.menu-icon {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-size: 1.25rem;
+  cursor: pointer;
 }
 
-/* Style de l'icône de login */
-.auth-icon {
-    font-size: 22px;
-    color: #0077cc;
+.navbar-backdrop {
+  display: none;
 }
 
-.auth-icon:hover {
-    color: #005fa3;
-}
-
-.phone-button:active,
-.contact-button:active {
-  transform: scale(0.98);
-  box-shadow: none;
-}
-
-
-
-
-
-
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: #333;
-}
-
-.dropdown-toggle:hover {
-    color: #0077cc;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    width: 200px;
-    z-index: 100;
-    padding: 10px 0;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-10px);
-}
-
-.dropdown-item {
-    text-decoration: none;
-    color: #333;
-    padding: 10px 15px;
-    display: block;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-item:hover {
-    background-color: #f0f0f0;
-    color: #0077cc;
-}
-
-.nav-item:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-/* Cacher les liens sur petit écran */
-.navbar-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .menu-icon {
-    display: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-  
-  /* Version mobile */
-@media (max-width: 768px) {
-    .navbar-container {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 15px;
-      height: 60px;
-    }
-  
-    .menu-icon {
-      display: block;
-      order: 2; /* Place l'icône menu à droite */
-    }
-  
-    .navbar-links {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: white;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 15px;
-    }
-  
-    .navbar-links.mobile-menu {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .nav-menu {
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      margin-left: 88px;
-    }
-  
- /* En version mobile, on n'affiche plus display:none */
-@media (max-width: 768px) {
-  /* Supprime cette ligne :
-  .navbar-right {
-    display: none;
-  }
-  */
-
-  .navbar-links.mobile-menu .navbar-right {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
-  }
-}
-  
-    .logo-img {
-      width: 100px;
-      order: 1; /* Logo à gauche */
-    }
-  
-    /* Style spécifique pour le texte promotionnel */
-    .promo-text {
-      font-size: 14px;
-      color: #2e93ff;
-      font-weight: bold;
-      text-align: center;
-      margin: 5px 0;
-      white-space: nowrap;
-    }
-  
-    /* Style pour les infos de contact */
-    .contact-info {
-      font-size: 14px;
-      text-align: center;
-    }
-    
-    .phone-number {
-      font-weight: bold;
-      color: #2c3e50;
-    }
-  }
-  @media (max-width: 600px) {
-  .navbar {
-    padding: 8px 12px;
-  }
-
-  .navbar-container {
+@media (max-width: 1080px) {
+  .phone-button {
+    font-size: 0;
+    gap: 0;
     padding: 0;
-    height: auto;
+    width: 42px;
+    height: 42px;
   }
-
-  .logo-img {
-    width: 90px;
+  .phone-button i {
+    font-size: 1rem;
   }
+}
 
+@media (max-width: 900px) {
   .menu-icon {
-    font-size: 1.6rem;
+    display: inline-flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: var(--navbar-h);
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - var(--navbar-h));
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    padding: 18px 20px 24px;
+    background: #fff;
+    box-shadow: 0 20px 30px rgba(13, 35, 64, 0.12);
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.3s var(--ease), opacity 0.25s ease, visibility 0.25s;
+    z-index: 1001;
   }
 
   .navbar-links.mobile-menu {
-    padding: 10px;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .navbar-backdrop {
+    display: block;
+    position: fixed;
+    inset: var(--navbar-h) 0 0 0;
+    background: rgba(13, 35, 64, 0.35);
+    z-index: 1000;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
   }
 
   .nav-link {
-    font-size: 15px;
-    padding: 8px 10px;
-    text-align: left;
+    padding: 14px 12px;
+    font-size: 1.05rem;
   }
 
-  .phone-button,
+  .nav-link.active::after {
+    display: none;
+  }
+
+  .nav-link.active {
+    background: var(--primary-soft);
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .phone-button {
+    font-size: 1rem;
+    gap: 8px;
+    width: auto;
+    height: auto;
+    padding: 13px 18px;
+  }
+
   .contact-button {
-    padding: 10px;
-    font-size: 14px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar-links.mobile-menu .navbar-right {
-    gap: 10px;
-  }
-
-  .dropdown-item {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-
-  .promo-text {
-    font-size: 13px;
-    margin: 8px 0;
-  }
-
-  .contact-info {
-    font-size: 13px;
+    padding: 13px 18px;
   }
 }

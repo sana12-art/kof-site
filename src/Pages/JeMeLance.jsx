@@ -1,76 +1,68 @@
 import React, { useState } from 'react';
+import PageHero from '../components/PageHero';
+import { postJson } from '../services/api';
+import { CONTACT } from '../config';
 import './JeMeLance.css';
 
-function JeMeLance() {
-  const [formData, setFormData] = useState({
-    nom: '',
-    email: '',
-    telephone: '',
-    entreprise: '',
-    message: '',
-  });
+const initialState = { nom: '', email: '', telephone: '', entreprise: '', message: '' };
 
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+function JeMeLance() {
+  const [formData, setFormData] = useState(initialState);
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch('http://localhost:5000/api/jemelance', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSuccessMessage("Votre demande a bien été envoyée !");
-        setErrorMessage('');
-        setFormData({
-          nom: '',
-          email: '',
-          telephone: '',
-          entreprise: '',
-          message: '',
-        });
-        setTimeout(() => setSuccessMessage(''), 5000);
-      } else {
-        setErrorMessage(result.message || "Erreur lors de l’envoi.");
-        setSuccessMessage('');
-      }
-    } catch (error) {
-      console.error('Erreur lors de l’envoi :', error);
-      setErrorMessage("Erreur lors de l’envoi du formulaire.");
-      setSuccessMessage('');
+    setLoading(true);
+    setStatus(null);
+    const result = await postJson('/api/jemelance', formData);
+    if (result.ok) {
+      setStatus({ type: 'success', text: 'Votre demande a bien été envoyée ! Nous vous recontactons très vite.' });
+      setFormData(initialState);
+    } else {
+      setStatus({ type: 'error', text: result.message });
     }
+    setLoading(false);
   };
 
   return (
-    <div className="jemelance-container">
-      <h1>Rejoignez l'aventure avec KOF</h1>
-      <p>Nous sommes impatients de construire votre succès ensemble. Laissez-nous vos informations et commencez votre parcours entrepreneurial dès aujourd'hui !</p>
+    <div className="page">
+      <title>Nous contacter | KOF-EXPERTS</title>
+      <PageHero
+        title="Rejoignez l'aventure avec KOF"
+        subtitle="Nous sommes impatients de construire votre succès ensemble. Laissez-nous vos informations et commencez votre parcours dès aujourd'hui."
+      />
 
-      <form className="contact-form" onSubmit={handleSubmit}>
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <section className="section">
+        <div className="container contact-grid">
+          <div className="contact-info card">
+            <h2>Nos coordonnées</h2>
+            <p><i className="fas fa-phone" aria-hidden="true"></i> <a href={CONTACT.phoneHref}>{CONTACT.phone}</a></p>
+            <p><i className="fas fa-envelope" aria-hidden="true"></i> <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
+            <p><i className="fas fa-location-dot" aria-hidden="true"></i> {CONTACT.address}</p>
+          </div>
 
-        <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder="Votre nom" required />
-        <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Votre email" required />
-        <input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} placeholder="Votre numéro de téléphone" required />
-        <input type="text" name="entreprise" value={formData.entreprise} onChange={handleChange} placeholder="Le nom de votre entreprise" required />
-        <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Votre message" required></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
+          <form className="form-stack contact-form card" onSubmit={handleSubmit}>
+            <h2>Écrivez-nous</h2>
+            <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder="Votre nom" autoComplete="name" aria-label="Votre nom" required />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Votre email" autoComplete="email" aria-label="Votre email" required />
+            <input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} placeholder="Votre numéro de téléphone" autoComplete="tel" aria-label="Votre téléphone" required />
+            <input type="text" name="entreprise" value={formData.entreprise} onChange={handleChange} placeholder="Le nom de votre entreprise" autoComplete="organization" aria-label="Votre entreprise" required />
+            <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Votre message" aria-label="Votre message" required></textarea>
+
+            {status && <p className={`form-message ${status.type}`} role="status">{status.text}</p>}
+
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Envoi en cours…' : 'Envoyer'}
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }
