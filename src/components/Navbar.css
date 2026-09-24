@@ -35,7 +35,7 @@
 }
 
 .logo-img {
-  height: 68px;
+  height: 72px;
   width: auto;
   display: block;
   transition: transform 0.3s var(--ease);
@@ -173,7 +173,7 @@
 
 @media (max-width: 900px) {
   .logo-img {
-    height: 52px;
+    height: 54px;
   }
 
   .menu-icon {

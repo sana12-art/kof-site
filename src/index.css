@@ -25,7 +25,7 @@
   --shadow-lg: 0 20px 50px rgba(13, 35, 64, 0.16);
 
   --container: 1140px;
-  --navbar-h: 84px;
+  --navbar-h: 88px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -467,7 +467,7 @@ textarea {
 
 @media (max-width: 900px) {
   :root {
-    --navbar-h: 68px;
+    --navbar-h: 72px;
   }
 }
 
