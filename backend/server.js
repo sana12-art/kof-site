@@ -6,30 +6,64 @@ const bcrypt = require('bcrypt');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Derrière le proxy de l'hébergeur : nécessaire pour lire la vraie IP du visiteur.
+app.set('trust proxy', 1);
+
 // ALLOWED_ORIGINS : liste d'origines séparées par des virgules (ex : https://kof-site.vercel.app)
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000')
   .split(',')
   .map((o) => o.trim());
 app.use(cors({ origin: allowedOrigins }));
-app.use(express.json());  // pour lire le JSON envoyé depuis React
+app.use(express.json({ limit: '50kb' }));  // pour lire le JSON envoyé depuis React
 
+// Anti-spam : limite le nombre d'envois par IP sur les routes POST (en mémoire, sans dépendance).
+const RATE_WINDOW_MS = 15 * 60 * 1000;
+const RATE_MAX = 20;
+const hits = new Map();
+setInterval(() => {
+  const now = Date.now();
+  for (const [ip, entry] of hits) if (now > entry.reset) hits.delete(ip);
+}, RATE_WINDOW_MS).unref();
 
-// Connexion MySQL (identifiants dans backend/.env, jamais dans le code)
-const db = mysql.createConnection({
+app.use('/api', (req, res, next) => {
+  if (req.method !== 'POST') return next();
+  const now = Date.now();
+  const entry = hits.get(req.ip);
+  if (!entry || now > entry.reset) {
+    hits.set(req.ip, { count: 1, reset: now + RATE_WINDOW_MS });
+    return next();
+  }
+  entry.count += 1;
+  if (entry.count > RATE_MAX) {
+    return res.status(429).json({ message: 'Trop de demandes. Merci de réessayer dans quelques minutes.' });
+  }
+  next();
+});
+
+// Connexion MySQL (identifiants dans backend/.env, jamais dans le code).
+// Un pool évite les coupures de connexion après inactivité chez les hébergeurs.
+const db = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME || 'kofsite',
-  port: Number(process.env.DB_PORT) || 3307
+  port: Number(process.env.DB_PORT) || 3307,
+  waitForConnections: true,
+  connectionLimit: 5,
+  enableKeepAlive: true,
+  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : undefined
 });
 
-db.connect(err => {
+db.query('SELECT 1', err => {
   if (err) {
     console.error('Erreur de connexion à la DB:', err);
   } else {
     console.log('Connecté à la base de données MySQL');
   }
 });
+
+// Vérification de santé pour l'hébergeur
+app.get('/', (req, res) => res.json({ status: 'ok' }));
 
 app.post('/api/devis', (req, res) => {
   const { name, phone, email, revenue, page_origin } = req.body;
