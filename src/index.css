@@ -153,8 +153,13 @@ textarea {
 
 .btn-primary:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 26px rgba(4, 123, 242, 0.35);
+}
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(4, 123, 242, 0.35);
+  }
 }
 
 .btn-outline {
@@ -206,10 +211,12 @@ textarea {
     border-color 0.3s ease;
 }
 
-.card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow);
-  border-color: rgba(4, 123, 242, 0.35);
+@media (hover: hover) {
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+    border-color: rgba(4, 123, 242, 0.35);
+  }
 }
 
 /* ---------- Formulaires ---------- */
@@ -401,6 +408,43 @@ textarea {
   .page-hero {
     padding: 48px 0 56px;
   }
+}
+
+/* ---------- Adaptation aux écrans tactiles (tous téléphones et tablettes) ---------- */
+@media (pointer: coarse) {
+  .btn {
+    min-height: 46px;
+  }
+
+  .text-link,
+  .service-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+  }
+
+  .form-stack input:not([type='checkbox']),
+  .form-stack select,
+  .form-stack textarea {
+    min-height: 46px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 16px minimum : évite le zoom automatique de Safari iOS quand on touche un champ */
+  .form-stack input:not([type='checkbox']),
+  .form-stack select,
+  .form-stack textarea,
+  .form-stack .react-tel-input .form-control {
+    font-size: 16px;
+  }
+}
+
+/* Liste des pays du champ téléphone : ne dépasse jamais de l'écran */
+.form-stack .react-tel-input .country-list {
+  width: min(300px, calc(100vw - 56px));
+  max-width: calc(100vw - 56px);
 }
 
 @media (prefers-reduced-motion: reduce) {

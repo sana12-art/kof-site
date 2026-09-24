@@ -70,7 +70,7 @@ const DevisForm = ({ origin = 'home', title = 'Obtenir un devis gratuit et sans 
           type="text"
           name="revenue"
           inputMode="numeric"
-          placeholder="Chiffre d'affaires annuel HT (€)"
+          placeholder="Chiffre d'affaires HT (€)"
           aria-label="Chiffre d'affaires annuel HT en euros"
           value={values.revenue}
           onChange={setField('revenue')}

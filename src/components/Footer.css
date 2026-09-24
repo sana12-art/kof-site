@@ -52,6 +52,39 @@
   color: var(--primary);
 }
 
+@media (pointer: coarse) {
+  .footer-col {
+    gap: 0;
+  }
+
+  .footer-col > a,
+  .footer-col p a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .site-footer .footer-col p {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .site-footer .footer-col p i {
+    margin-top: 0;
+  }
+
+  .footer-legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .footer-social-icons a {
+    width: 46px;
+    height: 46px;
+  }
+}
+
 .footer-col p {
   display: flex;
   align-items: flex-start;
