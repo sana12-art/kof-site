@@ -1,5 +1,6 @@
 // Point unique pour les coordonnées du cabinet et l'URL de l'API.
-export const API_URL = (process.env.REACT_APP_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+// Par défaut l'API est servie par les fonctions Vercel du même site (dossier /api).
+export const API_URL = (process.env.REACT_APP_API_URL || '').replace(/\/$/, '');
 
 // Informations légales de l'entreprise : à compléter. Seules les lignes renseignées
 // apparaissent dans la page « Mentions légales ».
