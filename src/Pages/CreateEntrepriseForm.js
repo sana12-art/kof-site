@@ -3,6 +3,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-creation.jpg';
 import { postJson } from '../services/api';
 import './CreateEntrepriseForm.css';
 
@@ -182,6 +183,8 @@ const CreateEntrepriseForm = () => {
     <div className="page">
       <title>Création d'entreprise | KOF-EXPERTS</title>
       <PageHero
+        image={heroImg}
+        label="Création d'entreprise"
         title="Créez votre entreprise en toute sérénité"
         subtitle="Répondez à quelques questions, un expert KOF vous recontacte pour construire votre projet."
       />

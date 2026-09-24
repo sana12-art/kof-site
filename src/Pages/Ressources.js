@@ -1,5 +1,6 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-ressources.jpg';
 import './Ressources.css';
 
 const ressourcesData = [
@@ -42,6 +43,8 @@ const Ressources = () => (
   <div className="page">
     <title>Ressources | KOF-EXPERTS</title>
     <PageHero
+      image={heroImg}
+      label="Ressources"
       title="Ressources utiles pour votre entreprise"
       subtitle="Découvrez nos guides, modèles et conseils pour mieux gérer votre projet."
     />

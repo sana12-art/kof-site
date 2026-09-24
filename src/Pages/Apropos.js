@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
-import histoire from '../assets/histoire.jpg';
-import mission from '../assets/mission.jpg';
-import oeuvre from '../assets/oeuvre.jpg';
+import heroImg from '../assets/photos/hero-apropos.jpg';
+import histoire from '../assets/photos/story-histoire.jpg';
+import mission from '../assets/photos/story-mission.jpg';
+import oeuvre from '../assets/photos/story-oeuvre.jpg';
 import './Apropos.css';
 
 const reveal = {
@@ -55,6 +56,8 @@ function Apropos() {
     <div className="page">
       <title>À propos | KOF-EXPERTS</title>
       <PageHero
+        image={heroImg}
+        label="À propos"
         title="KOF-EXPERTS, votre guide vers l'excellence entrepreneuriale"
         subtitle="Notre engagement envers l'excellence et l'innovation définit notre approche du conseil et de la formation."
       />

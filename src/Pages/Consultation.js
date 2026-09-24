@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-consultation.jpg';
 import { postJson } from '../services/api';
 import { CONTACT } from '../config';
 import homme from '../assets/homme.svg';
@@ -47,6 +48,8 @@ const Consultation = () => {
     <div className="page">
       <title>Consultation gratuite | KOF-EXPERTS</title>
       <PageHero
+        image={heroImg}
+        label="Consultation gratuite"
         title="Planifiez votre première consultation gratuite"
         subtitle="Vous avez un projet ? Parlons-en : nous vous offrons une première consultation gratuite et sans engagement."
       />

@@ -340,6 +340,79 @@ textarea {
   z-index: 1;
 }
 
+/* En-tête avec photo */
+.page-hero--photo {
+  display: flex;
+  align-items: center;
+  min-height: 300px;
+  padding: 56px 0;
+  text-align: left;
+  background: var(--navy);
+}
+
+.page-hero--photo::after {
+  display: none;
+}
+
+.page-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 35, 64, 0.9) 0%,
+    rgba(13, 35, 64, 0.7) 38%,
+    rgba(13, 35, 64, 0.12) 78%,
+    rgba(13, 35, 64, 0.02) 100%
+  );
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero--photo h1 {
+  margin: 0 0 14px;
+  max-width: 640px;
+}
+
+.page-hero--photo p {
+  margin: 0;
+  max-width: 560px;
+}
+
+.page-hero-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .page-hero--photo {
+    min-height: 240px;
+    padding: 40px 0;
+  }
+  .page-hero-overlay {
+    background: linear-gradient(180deg, rgba(13, 35, 64, 0.8) 0%, rgba(13, 35, 64, 0.55) 100%);
+  }
+}
+
 /* ---------- Transitions de page ---------- */
 .page {
   animation: pageIn 0.45s var(--ease) both;

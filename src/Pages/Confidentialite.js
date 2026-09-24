@@ -1,12 +1,13 @@
 import React from 'react';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-legal.jpg';
 import { CONTACT, LEGAL } from '../config';
 import './Legal.css';
 
 const Confidentialite = () => (
   <div className="page">
     <title>Politique de confidentialité | KOF-EXPERTS</title>
-    <PageHero title="Politique de confidentialité" subtitle="Comment nous utilisons les données que vous nous confiez." />
+    <PageHero image={heroImg} label="Vos données" title="Politique de confidentialité" subtitle="Comment nous utilisons les données que vous nous confiez." />
 
     <section className="section">
       <div className="container legal">

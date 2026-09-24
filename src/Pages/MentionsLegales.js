@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-legal.jpg';
 import { CONTACT, LEGAL } from '../config';
 import './Legal.css';
 
@@ -23,7 +24,7 @@ const MentionsLegales = () => {
   return (
     <div className="page">
       <title>Mentions légales | KOF-EXPERTS</title>
-      <PageHero title="Mentions légales" />
+      <PageHero image={heroImg} label="Informations légales" title="Mentions légales" />
 
       <section className="section">
         <div className="container legal">

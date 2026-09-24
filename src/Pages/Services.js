@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-services.jpg';
 import DevisForm from '../components/DevisForm';
 import { CONTACT } from '../config';
 import './Services.css';
@@ -28,7 +29,9 @@ const Services = () => (
   <div className="page">
     <title>Nos services | KOF-EXPERTS</title>
     <PageHero
-      title="Nos services pour un accompagnement comptable sur mesure"
+      image={heroImg}
+      label="Nos services"
+      title="Un accompagnement comptable sur mesure"
       subtitle="Du lancement de votre activité à son développement, nos experts vous accompagnent."
     />
 

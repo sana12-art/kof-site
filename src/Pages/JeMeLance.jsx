@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageHero from '../components/PageHero';
+import heroImg from '../assets/photos/hero-contact.jpg';
 import { postJson } from '../services/api';
 import { CONTACT } from '../config';
 import './JeMeLance.css';
@@ -34,6 +35,8 @@ function JeMeLance() {
     <div className="page">
       <title>Nous contacter | KOF-EXPERTS</title>
       <PageHero
+        image={heroImg}
+        label="Contact"
         title="Rejoignez l'aventure avec KOF"
         subtitle="Nous sommes impatients de construire votre succès ensemble. Laissez-nous vos informations et commencez votre parcours dès aujourd'hui."
       />
