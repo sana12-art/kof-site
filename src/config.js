@@ -20,7 +20,7 @@ export const CONTACT = {
   phone: '01 53 10 32 06',
   phoneHref: 'tel:+33153103206',
   email: 'contact@kof-experts.com',
-  address: '60 Rue de La Jonquière, 75017 Paris',
+  address: '22 Rue de Saussure, 75017 Paris',
   facebook: 'https://www.facebook.com/profile.php?id=100084737476572',
   linkedin: 'https://www.linkedin.com/company/kofexperts/',
 };
