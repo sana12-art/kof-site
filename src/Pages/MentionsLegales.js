@@ -24,7 +24,7 @@ const MentionsLegales = () => {
   return (
     <div className="page">
       <title>Mentions légales | KOF-EXPERTS</title>
-      <PageHero image={heroImg} crumb="Mentions légales" label="Informations légales" title="Mentions légales" />
+      <PageHero image={heroImg} label="Informations légales" title="Mentions légales" />
 
       <section className="section">
         <div className="container legal">

@@ -36,7 +36,6 @@ function JeMeLance() {
       <title>Nous contacter | KOF-EXPERTS</title>
       <PageHero
         image={heroImg}
-        crumb="Contact"
         label="Contact"
         title="Rejoignez l'aventure avec KOF"
         subtitle="Nous sommes impatients de construire votre succès ensemble. Laissez-nous vos informations et commencez votre parcours dès aujourd'hui."

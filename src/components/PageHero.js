@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-// En-tête de page. Avec `image`, affiche une photo en fond sous un voile encre.
-const PageHero = ({ title, subtitle, image, label, crumb }) => (
+// En-tête de page. Avec `image`, affiche une photo en fond sous un voile bleu marine.
+const PageHero = ({ title, subtitle, image, label }) => (
   <section className={`page-hero${image ? ' page-hero--photo' : ''}`}>
     {image && (
       <>
@@ -11,12 +10,7 @@ const PageHero = ({ title, subtitle, image, label, crumb }) => (
       </>
     )}
     <div className="container page-hero-inner">
-      {crumb && (
-        <span className="page-hero-crumb">
-          <Link to="/">Accueil</Link> / {crumb}
-        </span>
-      )}
-      {label && <span className="eyebrow">{label}</span>}
+      {label && <span className="page-hero-label">{label}</span>}
       <h1>{title}</h1>
       {subtitle && <p>{subtitle}</p>}
     </div>

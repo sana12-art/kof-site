@@ -44,7 +44,6 @@ const Ressources = () => (
     <title>Ressources | KOF-EXPERTS</title>
     <PageHero
       image={heroImg}
-      crumb="Ressources"
       label="Ressources"
       title="Ressources utiles pour votre entreprise"
       subtitle="Découvrez nos guides, modèles et conseils pour mieux gérer votre projet."
