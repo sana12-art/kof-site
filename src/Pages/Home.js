@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 import './Home.css';
 import DevisForm from '../components/DevisForm';
 import { CONTACT } from '../config';
-import creation from '../assets/creation.png';
-import acompagnement from '../assets/acompagnement.png';
-import finance from '../assets/finance.png';
-import fiscal from '../assets/fiscal.png';
-import gestion from '../assets/gestion.png';
-import juridique from '../assets/juridique.png';
-import rh from '../assets/rh.png';
-import comptabilite from '../assets/comptabilité.png';
-import formations from '../assets/formations.png';
+import creation from '../assets/icons/creation.png';
+import acompagnement from '../assets/icons/acompagnement.png';
+import finance from '../assets/icons/finance.png';
+import fiscal from '../assets/icons/fiscal.png';
+import gestion from '../assets/icons/gestion.png';
+import juridique from '../assets/icons/juridique.png';
+import rh from '../assets/icons/rh.png';
+import comptabilite from '../assets/icons/comptabilité.png';
+import formations from '../assets/icons/formations.png';
 
 const reasons = [
   { icon: 'fa-shield-alt', title: 'Sécurité', text: 'Vos données sont protégées avec les dernières technologies de sécurité.' },
