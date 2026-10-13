@@ -49,6 +49,7 @@ const Consultation = () => {
       <title>Consultation gratuite | KOF-EXPERTS</title>
       <PageHero
         image={heroImg}
+        crumb="Consultation"
         label="Consultation gratuite"
         title="Planifiez votre première consultation gratuite"
         subtitle="Vous avez un projet ? Parlons-en : nous vous offrons une première consultation gratuite et sans engagement."

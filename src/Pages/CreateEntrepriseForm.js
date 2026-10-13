@@ -184,6 +184,7 @@ const CreateEntrepriseForm = () => {
       <title>Création d'entreprise | KOF-EXPERTS</title>
       <PageHero
         image={heroImg}
+        crumb="Création d'entreprise"
         label="Création d'entreprise"
         title="Créez votre entreprise en toute sérénité"
         subtitle="Répondez à quelques questions, un expert KOF vous recontacte pour construire votre projet."

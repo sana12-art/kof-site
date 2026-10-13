@@ -1,55 +1,5 @@
-.services-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.services-list > div {
-  display: flex;
-}
-
-.service-tile {
-  width: 100%;
-  padding: 30px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.service-tile-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  background: var(--primary-soft);
-  color: var(--primary);
-  font-size: 1.35rem;
-  margin-bottom: 6px;
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-.service-tile:hover .service-tile-icon {
-  background: var(--primary);
-  color: #fff;
-}
-
-.service-tile h2 {
-  font-size: 1.15rem;
-  margin: 0;
-}
-
-.service-tile p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  flex: 1;
-}
-
 .services-quote {
-  background: #fff;
+  background: var(--primary-soft);
 }
 
 .services-quote-grid {
@@ -59,30 +9,25 @@
   align-items: center;
 }
 
-.quote-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
-}
-
 .quote-list {
   list-style: none;
   padding: 0;
-  margin: 20px 0 24px;
+  margin: 18px 0 22px;
   display: grid;
-  gap: 14px;
+  gap: 12px;
 }
 
 .quote-list li {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 1.05rem;
+  position: relative;
+  padding-left: 24px;
   font-weight: 500;
 }
 
-.quote-list i {
+.quote-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
   color: var(--primary);
-  font-size: 1.2rem;
 }
 
 .quote-call {
@@ -95,20 +40,11 @@
 }
 
 @media (max-width: 1000px) {
-  .services-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .services-quote-grid {
     grid-template-columns: 1fr;
     gap: 36px;
   }
   .quote-form {
     justify-content: center;
-  }
-}
-
-@media (max-width: 560px) {
-  .services-list {
-    grid-template-columns: 1fr;
   }
 }

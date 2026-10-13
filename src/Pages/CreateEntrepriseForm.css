@@ -7,15 +7,15 @@
 }
 
 .create-progress {
-  height: 8px;
-  border-radius: 999px;
+  height: 6px;
+  border-radius: 0;
   background: var(--primary-soft);
   overflow: hidden;
 }
 
 .create-progress-bar {
   height: 100%;
-  border-radius: 999px;
+  border-radius: 0;
   background: linear-gradient(90deg, var(--primary), var(--primary-dark));
   transition: width 0.4s var(--ease);
 }

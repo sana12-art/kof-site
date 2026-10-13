@@ -13,11 +13,12 @@ const ServiceLayout = () => (
       <Outlet />
 
       <aside className="service-cta">
-        <h2>Un besoin sur ce sujet ?</h2>
+        <span className="eyebrow">Un besoin sur ce sujet ?</span>
+        <h2>Parlons-en</h2>
         <p>Nos experts vous répondent sous 24h. Première consultation gratuite et sans engagement.</p>
         <div className="service-cta-actions">
-          <Link to="/consultation" className="btn btn-light">Réserver une consultation</Link>
-          <Link to="/contact" className="btn btn-outline service-cta-outline">Nous contacter</Link>
+          <Link to="/consultation" className="btn btn-primary">Réserver une consultation</Link>
+          <Link to="/contact" className="btn btn-light">Nous contacter</Link>
         </div>
       </aside>
     </div>

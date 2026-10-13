@@ -8,7 +8,7 @@ import './DevisForm.css';
 const initialState = { name: '', phone: '', email: '', revenue: '' };
 
 // Formulaire de devis unique, utilisé sur l'accueil et sur la page Services.
-const DevisForm = ({ origin = 'home', title = 'Obtenir un devis gratuit et sans engagement' }) => {
+const DevisForm = ({ origin = 'home', title = 'Demander un devis' }) => {
   const [values, setValues] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
@@ -31,47 +31,48 @@ const DevisForm = ({ origin = 'home', title = 'Obtenir un devis gratuit et sans 
 
   return (
     <div className="devis-card card">
+      <span className="eyebrow">Gratuit &amp; sans engagement</span>
       <h3 className="devis-title">{title}</h3>
 
       <form className="form-stack" onSubmit={handleSubmit}>
+        <label htmlFor="devis-name">Nom et prénom</label>
         <input
+          id="devis-name"
           type="text"
           name="name"
-          placeholder="Nom et prénom"
           autoComplete="name"
-          aria-label="Nom et prénom"
           value={values.name}
           onChange={setField('name')}
           required
         />
 
+        <label htmlFor="devis-phone">Téléphone</label>
         <PhoneInput
+          inputProps={{ id: 'devis-phone', name: 'phone', required: true }}
           country="fr"
           enableSearch
           preferredCountries={['fr', 'ma', 'us', 'gb']}
-          inputProps={{ name: 'phone', required: true, 'aria-label': 'Téléphone' }}
           value={values.phone}
           onChange={(phone) => setValues((v) => ({ ...v, phone }))}
-          placeholder="Numéro de téléphone"
         />
 
+        <label htmlFor="devis-email">Adresse email</label>
         <input
+          id="devis-email"
           type="email"
           name="email"
-          placeholder="Adresse email"
           autoComplete="email"
-          aria-label="Adresse email"
           value={values.email}
           onChange={setField('email')}
           required
         />
 
+        <label htmlFor="devis-revenue">Chiffre d'affaires annuel HT (€)</label>
         <input
+          id="devis-revenue"
           type="text"
           name="revenue"
           inputMode="numeric"
-          placeholder="Chiffre d'affaires HT (€)"
-          aria-label="Chiffre d'affaires annuel HT en euros"
           value={values.revenue}
           onChange={setField('revenue')}
           required

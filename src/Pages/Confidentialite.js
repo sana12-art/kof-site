@@ -7,7 +7,7 @@ import './Legal.css';
 const Confidentialite = () => (
   <div className="page">
     <title>Politique de confidentialité | KOF-EXPERTS</title>
-    <PageHero image={heroImg} label="Vos données" title="Politique de confidentialité" subtitle="Comment nous utilisons les données que vous nous confiez." />
+    <PageHero image={heroImg} crumb="Confidentialité" label="Vos données" title="Politique de confidentialité" subtitle="Comment nous utilisons les données que vous nous confiez." />
 
     <section className="section">
       <div className="container legal">
