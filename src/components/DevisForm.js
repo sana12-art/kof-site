@@ -23,7 +23,7 @@ const DevisForm = ({ origin = 'home', title = 'Obtenir un devis gratuit et sans 
     }
     setLoading(true);
     setMessage(null);
-    const result = await postJson('/api/devis', { ...values, page_origin: origin });
+    const result = await postJson('/api/devis.php', { ...values, page_origin: origin });
     setMessage({ type: result.ok ? 'success' : 'error', text: result.message });
     if (result.ok) setValues(initialState);
     setLoading(false);

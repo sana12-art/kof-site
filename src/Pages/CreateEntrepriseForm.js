@@ -98,7 +98,7 @@ const CreateEntrepriseForm = () => {
       ville: '',
       message: `Capital social : ${formData.capitalSocial || 'non précisé'} | Création souhaitée : ${formData.dateCreationSouhaitee}`,
     };
-    const result = await postJson('/api/creation-entreprise', payload);
+    const result = await postJson('/api/creation-entreprise.php', payload);
     if (result.ok) {
       setSent(true);
       setFormData(initialState);

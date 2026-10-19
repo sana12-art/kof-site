@@ -34,7 +34,7 @@ const Consultation = () => {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
-    const result = await postJson('/api/consultation', formData);
+    const result = await postJson('/api/consultation.php', formData);
     if (result.ok) {
       setStatus({ type: 'success', text: 'Votre demande de consultation a bien été reçue. Nous vous recontactons rapidement.' });
       setFormData(initialState);

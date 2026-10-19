@@ -21,7 +21,7 @@ function JeMeLance() {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
-    const result = await postJson('/api/jemelance', formData);
+    const result = await postJson('/api/jemelance.php', formData);
     if (result.ok) {
       setStatus({ type: 'success', text: 'Votre demande a bien été envoyée ! Nous vous recontactons très vite.' });
       setFormData(initialState);

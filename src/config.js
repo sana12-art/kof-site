@@ -1,5 +1,6 @@
 // Point unique pour les coordonnées du cabinet et l'URL de l'API.
-// Par défaut l'API est servie par les fonctions Vercel du même site (dossier /api).
+// Par défaut, les formulaires appellent les scripts PHP du même site
+// (public/api/*.php, copiés dans build/api/ au moment du build).
 export const API_URL = (process.env.REACT_APP_API_URL || '').replace(/\/$/, '');
 
 // Informations légales de l'entreprise : à compléter. Seules les lignes renseignées
